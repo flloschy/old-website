@@ -1,0 +1,45 @@
+
+window.onload = function() {
+    
+    let links = [
+        "https://youtu.be/dQw4w9WgXcQ",
+        "http://downloadramdownloadramdownloadram.com/",
+        "http://papertoilet.com/",
+        "https://codepen.io/ge1doot/full/WbWQOP/",
+        "https://trypap.com/",
+        "https://isitchristmas.com/",
+        "https://www.ouaismaisbon.ch/",
+        "http://www.koalastothemax.com/",
+        "http://make-everything-ok.com/",
+        "https://rulesoftheinternet.com/",
+        "http://ninjaflex.com/",
+        "http://internet-map.net/",
+        "http://www.plspetdoge.com/",
+        "http://faceofdisapproval.com/",
+        "https://www.kamogo.com/",
+        "http://eelslap.com/",
+        "http://www.freechocolate.com/",
+        "http://www.woot.co.uk/",
+        "https://www.howmanypeopleareinspacerightnow.com/",
+        "http://hasthelargehadroncolliderdestroyedtheworldyet.com/",
+        "https://www.cowsgomoo.co.uk/",
+        "http://www.clicktoremove.com/",
+        "https://www.tomscott.com/usvsth3m/maths/",
+        "http://nothingeverhappens.com/",
+        "https://drumsound.net/",
+        "https://froggytime.com/",
+        "http://www.youareinaforest.com/",
+        "http://clickingbad.nullism.com/",
+        "https://onetinyhand.com/",
+        "http://corndogoncorndog.com/",
+        "https://www.omfgdogs.com/",
+        "https://www.sheepfilms.co.uk/gifs?pgid=kctc5nrd-afad6bc9-f898-4c06-83df-4ebd2de83b0f",
+        "https://www.rrrather.com/",
+        "https://bouncingdvdlogo.com/",
+        "http://www.cachemonet.com/",
+        "http://randomcolour.com/",
+        "http://www.slightlyinteresting.com/lavalamp/lava.asp",
+        "http://conceptlab.com/simulator/morning/clock800.html"
+    ]
+    window.location.href = links[Math.floor(Math.random() * links.length)];
+}
