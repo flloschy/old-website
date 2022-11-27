@@ -2,6 +2,7 @@
 window.onload = function() {
     
     let links = [
+        "https://canadian-united.media/",
         "https://youtu.be/dQw4w9WgXcQ",
         "http://kryall.duckdns.org:5000/",
         "http://downloadramdownloadramdownloadram.com/",
