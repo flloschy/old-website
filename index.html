@@ -5,32 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./script.js"></script>
   <title>Floschy.me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
 </head>
-<body style="background-color: black; color:white">
-  <div onclick="randomWebsite()" style="width:150px; height:150px; background-color: white; text-align: center">
-    <a style="color:black">Click to get redirected to a random website</a>
+<body style="background-color: black; color:white; font-family: 'Nanum Brush Script', cursive;">
+  <div onclick="randomWebsite()" style="background-color: white; text-align: center">
+    <a style="color:black" id="insert">Click to get redirected to a random website</a>
   </div>
-  <div style="padding-top: 60px;">
+  <div style="padding-top: 60px; padding-left: 50px;">
     <a>Decimal -> Binary: </a><input type="number" name="decimal" id="decimal" onkeypress="return checkNumberKey()">
     <button onclick="DecimalToBinary(document.getElementById('decimal').value)">Calculate</button>
   </div>
-  <div style="padding-top: 10px;">
+  <div style="padding-top: 70px; padding-left: 0px;">
     <a>Binary -> Decimal: </a><input type="number" name="binary" id="binary" onkeypress="return checkBinaryKey()">
     <button onclick="BinaryToDecimal(document.getElementById('binary').value)">Calculate</button>
   </div>
-  <div style="padding-top: 10px;">
+  <div style="padding-top: 30px; padding-left: 6px;">
     <a>Decimal -> Hexadecimal: </a><input type="number" name="hexadecimal" id="hexadecimal" onkeypress="return checkNumberKey()">
     <button onclick="DecimalToHexadecimal(document.getElementById('hexadecimal').value)">Calculate</button>
   </div>
-  <div style="padding-top: 10px;">
+  <div style="padding-top: 50px; padding-left: 1px;">
     <a>Hexadecimal -> Decimal: </a><input name="hexadecimal2" id="hexadecimal2" onkeypress="return checkHexaNumberKey()">
     <button onclick="HexadecimalToDecimal(document.getElementById('hexadecimal2').value)">Calculate</button>
   </div>
-  <button style="padding-top: 15px;" onclick="randomPwd()">Generate Random Password</button>
-  <div style="padding-top: 10px;">
+  <button style="padding-top: 95px; padding-left: 55px;" onclick="randomPwd()">Generate Random Password</button>
+  <div style="padding-top: 30px; padding-left: 23px;">
     <a>Check Password: </a><input name="pwdcheck" id="pwdcheck" onkeypress="return checkPwdkey()">
     <button onclick="PwdCheck(document.getElementById('pwdcheck').value)">Calculate</button><br>
-    <a style="padding-top: 0px; font-size: 10px; color:red">System may be completely wrong, dont rely on this!</a><br>
+    <a style="padding-top: 0px; font-size: 15px; color:red">System may be completely wrong, dont rely on this!</a><br>
     <a style="color:black; font-size: 10px">"may be" you know? shut up. almost 100% COMPLETELY WRONG!!!!!!!!!!</a>
   </div>
 
