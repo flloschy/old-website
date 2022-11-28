@@ -2,6 +2,9 @@
 const randomWebsite = function() {
     
     let links = [
+        "https://www.fiverr.com/floschy_/make-a-custom-discord-bot",
+        "https://www.fiverr.com/floschy_/create-you-a-program-in-python",
+        "https://github.com/flloschy",
         "https://wiki.teamfortress.com/wiki/Engineer",
         "http://downloadramdownloadramdownloadram.com/",
         "http://papertoilet.com/",
