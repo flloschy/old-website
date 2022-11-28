@@ -6,7 +6,39 @@
   <script src="./script.js"></script>
   <title>Floschy.me</title>
 </head>
-<body>
-  
+<body style="background-color: black; color:white">
+  <div onclick="randomWebsite()" style="width:150px; height:150px; background-color: white; text-align: center">
+    <a style="color:black">Click to get redirected to a random website</a>
+  </div>
+  <div style="padding-top: 60px;">
+    <a>Decimal -> Binary: </a><input type="number" name="decimal" id="decimal" onkeypress="return checkNumberKey()">
+    <button onclick="DecimalToBinary(document.getElementById('decimal').value)">Calculate</button>
+  </div>
+  <div style="padding-top: 10px;">
+    <a>Binary -> Decimal: </a><input type="number" name="binary" id="binary" onkeypress="return checkBinaryKey()">
+    <button onclick="BinaryToDecimal(document.getElementById('binary').value)">Calculate</button>
+  </div>
+  <div style="padding-top: 10px;">
+    <a>Decimal -> Hexadecimal: </a><input type="number" name="hexadecimal" id="hexadecimal" onkeypress="return checkNumberKey()">
+    <button onclick="DecimalToHexadecimal(document.getElementById('hexadecimal').value)">Calculate</button>
+  </div>
+  <div style="padding-top: 10px;">
+    <a>Hexadecimal -> Decimal: </a><input name="hexadecimal2" id="hexadecimal2" onkeypress="return checkHexaNumberKey()">
+    <button onclick="HexadecimalToDecimal(document.getElementById('hexadecimal2').value)">Calculate</button>
+  </div>
+  <button style="padding-top: 15px;" onclick="randomPwd()">Generate Random Password</button>
+  <div style="padding-top: 10px;">
+    <a>Check Password: </a><input name="pwdcheck" id="pwdcheck" onkeypress="return checkPwdkey()">
+    <button onclick="PwdCheck(document.getElementById('pwdcheck').value)">Calculate</button><br>
+    <a style="padding-top: 0px; font-size: 10px; color:red">System may be completely wrong, dont rely on this!</a>
+  </div>
+
+
+  <div style="position:absolute; transform:translateY(100vh); color:white;">
+    Made by me :) <br> Discord: Floschy#1248 <br> Github: flloschy <br>
+    <a style="font-size: 10; color:darkred"> IDk how to center div LOL </a>
+  </div>
+
+
 </body>
 </html>
