@@ -1,4 +1,24 @@
 let links = [
+    // FLEX air
+    "https://youtu.be/pg5aBJ1LYGU", // 2
+    "https://youtu.be/u3e-CUE7ljk", // 3
+    "https://youtu.be/aGuHixFujHE", // 4
+    "https://youtu.be/f4ZRK8YLmPc", // 5
+    "https://youtu.be/LKkhfH8zSxM", // 6
+    "https://youtu.be/q99EoffYcP4", // 7
+    //
+    "https://learn.microsoft.com/en-us/typography/font-list/comic-sans-ms",
+    "https://www.crazygames.com/game/worlds-hardest-game",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Roggenvollkornbrot.Endstueck.Kruste.mit.Ausbund.jpg/1920px-Roggenvollkornbrot.Endstueck.Kruste.mit.Ausbund.jpg",
+    "https://floatingqrcode.com/",
+    "https://cyber-simulator.com/",
+    "https://checkboxrace.com/",
+    "https://cheese.com/",
+    "https://neal.fun/absurd-trolley-problems/",
+    "https://neal.fun/spend/",
+    "https://cdn.discordapp.com/attachments/1041752412173639680/1046898417919594638/image.png",
+    "https://youtu.be/gkMlUlQEfSY",
+    "http://corndog.io/",
     "http://www.themostamazingwebsiteontheinternet.com/",
     "https://onesquareminesweeper.com/",
     "https://media.tenor.com/0lbyPcn3-FgAAAAS/engineer-tf2.gif",
@@ -53,7 +73,6 @@ let links = [
 window.onload = function() {
     document.getElementById("insert").textContent = `Click to get redirected to one of ${links.length} random website`
 }
-
 
 
 const randomWebsite = function() {
