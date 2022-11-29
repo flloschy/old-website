@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: rgb(29, 29, 47);
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    margin: 0px;
+}
+
+.header {
+    width: 100vw;
+    height: 22px;
+    background-color: rgb(84, 84, 84);
+    margin: 0px;
+    padding: 0px;
+    box-shadow: 0px 0px 15px rgb(0,0,0);
+}
+
+.header a {
+    color: rgb(255, 255, 255);
+    padding-left: 10px;
+    text-align: center;
+    font-size: 15px;
+    text-decoration: underline;
+    text-transform:uppercase;
+}
+
+#content {
+    width: 80vw;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+input {
+    width: 20%;
+    border-radius: 5px;
+    border-style:solid;
+    border-color: rgba(255, 255, 255, 0.147);
+    color: rgb(255, 255, 255);
+    padding: 0;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.147);
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+}
+
+input:hover {
+    background-color: rgba(255, 255, 255, 0.184);
+}
+
+input:disabled {
+    background-color: rgba(255, 255, 255, 0.066);
+}
+
+button {
+    width: 20%;
+    border-radius: 5px;
+    border-style:solid;
+    border-color: rgba(255, 255, 255, 0.321);
+    color: rgb(255, 255, 255);
+    padding: 0;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.321);
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.452);
+}
+
+.output {
+    color: rgba(255, 255, 255, 0.44);
+    margin-top: 20px;
+}
