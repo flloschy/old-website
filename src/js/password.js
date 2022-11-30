@@ -26,7 +26,6 @@ const generatePwd = function() {
 
 const sample = function(len, amount) {
     let start = Date.now()
-    let pwds = 0
     let chars = 0
     
     while (Date.now() - start < 1000) {
@@ -35,15 +34,13 @@ const sample = function(len, amount) {
                 new String("x".repeat(len*2)) // only here to simulate some sort of thing what brutforcing does
                 chars += 1
             }
-            pwds += 1
         }
     }
     
-    return [pwds, chars];
+    return  chars;
 } 
 
-const [benchmarkPwdsPerSec, benchmarkCharsPerSec] = sample(100, max)
-console.log(benchmarkPwdsPerSec, benchmarkCharsPerSec);
+const benchmarkCharsPerSec = sample(100, max)
 const checkPwd = function(x) {
     if (x == "") return
     let len = x.length
