@@ -109,15 +109,17 @@ span {
     padding-right: 3px;
     color: rgb(255, 255, 255)
 }
+
 .round {
     border-radius: 5px 5px 5px 5px;
 }
 
 .link {
-    top: 50%;
-    left: 50%;
+    top: calc(50% + 5px);
+    left: calc(50% - 39px);
+    position: absolute;
     text-align: right;
-    position:absolute;
+    transition: linear 500ms;
     text-decoration: underline;
     text-transform: capitalize;
     color:rgb(255, 255, 255);
@@ -127,5 +129,5 @@ span {
     border-color: rgba(255, 255, 255, 0.321);
     border-style: solid;
     border-radius: 5px;
-    transition: ease-in-out 500ms;
+    user-select: none;
 }
