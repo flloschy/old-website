@@ -5,7 +5,4 @@ const updateContent = function(name) {
     req.open("GET", `src/html/${name}.html`, false);
     req.send(null);
     content.innerHTML = req.responseText
-
 }
-
-

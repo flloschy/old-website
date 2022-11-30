@@ -77,7 +77,7 @@ const checkPwd = function(x) {
 const showinfo = function(x) {
     let text = {
         'len': "If the length of the password is...\nbelow 10, then its \"Terrible\"\nbelow 20, then its \"Okay-ish\"\nbelow 30, then its \"Standard\"\nbelow 50, then its \"Good\"\nbelow 80, then its \"Very Good\"\nbelow 100, then its \"Perfect\"\nbelow 150, then its \"Outstanding\"\nover 150, then is \"Overkill\"",
-        'div': "How many percent of all characters are unique? e.g.\n\"AB\" = 100% unique\n\"AA\" 50% unique",
+        'div': "How many percent of all characters are unique? e.g.\n\"AB\" = 100% unique\n\"AA\" = 50% unique\nYou may want to aim for...\n100% in case of an short password\n80% in case of an medium password\n60% in case of an long password\nEverything over 80 characters basically doesn't matter",
         'com': "How many unique strings can be formed using the characters used in given password aiming for the same length",
         'co+': "How many unique strings can be formed using all characters from used sets aiming for the same length as given password",
         'cps': "How many characters can your device (single thread!) brute-force using all the used character sets",
