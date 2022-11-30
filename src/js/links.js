@@ -16,8 +16,7 @@ const updatePos = function() {
         link.style.transform = "rotate(" + rotateAngle + "deg) translate(0, -" + radius + "px)"
         link.style.top = document.body.clientHeight / 2
         let lastlink = document.getElementById(`link${i == 0 ? amount : i}`)
-        o = Math.pow(Math.pow(1 - link.getBoundingClientRect().y / document.body.clientHeight, 8), 2) * 10;
-        lastlink.style.opacity = o
+        lastlink.style.opacity = Math.pow(Math.pow(1 - (link.getBoundingClientRect().y - (document.body.clientHeight / 2 - radius)) / (document.body.clientHeight - (document.body.clientHeight / 2 - radius)), 8), 2) * 10;
     };
 
     el += 1
