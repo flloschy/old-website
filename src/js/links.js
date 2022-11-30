@@ -1,35 +1,38 @@
-let el = 1;
-let inters = null;
-let amount = 5
+let space = 2
 
-const updatePos = function() {
 
-    let radius = document.body.clientWidth < document.body.clientHeight ? document.body.clientWidth * 0.4 : document.body.clientHeight *0.4
-    radius = Math.round(radius)
 
-    for (var i = 0; i < amount; i++) {
-        let offsetAngle = 360 / amount;
-        let rotateAngle = offsetAngle * (i+1) + offsetAngle * el;
-        let link = document.getElementById(`link${i+1}`)
-        try {link.innerHTML}
-        catch (e) {pauseInverval()}
-        link.style.transform = "rotate(" + rotateAngle + "deg) translate(0, -" + radius + "px)"
-        link.style.top = document.body.clientHeight / 2
-        let lastlink = document.getElementById(`link${i == 0 ? amount : i}`)
-        lastlink.style.opacity = Math.pow(Math.pow(1 - (link.getBoundingClientRect().y - (document.body.clientHeight / 2 - radius)) / (document.body.clientHeight - (document.body.clientHeight / 2 - radius)), 8), 2) * 10;
-    };
+const getRandomPosition = function(element, used) {
+    let ret = false
+    let randomX = 0
+    let randomY = 0;
+    while (!ret) {
+        let y = document.body.offsetHeight - element.clientHeight - 48 - space;
+        let x = document.body.offsetWidth - element.clientWidth - 48 - space;
+        randomX = Math.floor(Math.random()*x) + 24 + Math.round(space/2);
+        randomY = Math.floor(Math.random()*y) + 24 + Math.round(space/2);
 
-    el += 1
-}
+        ret = !used || used.every(e => (
+            ( e[3] < (randomY - space) ) ||
+            ( e[1] > (randomY + element.clientHeight + space)) ||
+            ( e[2] < (randomX - space) ) ||
+            ( e[0] > (randomX +element.clientWidth + space))
+        ))
 
-const interval = function() {
-    if (inters == null) {
-        updatePos()
-        inters = setInterval(updatePos, 2500)
     }
+    return [randomX, randomY]
 }
-
-const pauseInverval = function() {
-    clearInterval(inters)
-    inters = null
+const updatePos = function() {
+    let used = []
+    for (let i = 0; i < 5; i++) {
+        let link = document.getElementById(`link${i+1}`)
+        console.log(i);
+        link.innerHTML
+        let [x, y] = getRandomPosition(link, used)
+        link.style.transitionDelay = `${100*(i+1)}ms`
+        link.style.top = Math.round((y / (document.body.offsetHeight - link.clientHeight - 24 - space))*90) + "%"
+        link.style.left = Math.round((x / (document.body.offsetWidth - link.clientWidth - space))*90) + "%"
+        link.style.opacity = "100%"
+        used.push([x, y, x+link.clientWidth, y+link.clientHeight])
+    }
 }
