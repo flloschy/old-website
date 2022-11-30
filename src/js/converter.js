@@ -11,7 +11,7 @@ const keyCheckBinary = function() {
     }
     let key = String.fromCharCode(code)
     let allowed = "01".split("");
-    let r = allowed.includes(key.toLowerCase()) && lenCheck();
+    let r = (allowed.includes(key.toLowerCase()) && lenCheck()) || code == 8;
     if (r) {
         document.getElementById('binaryInput').disabled = false
         document.getElementById('decimalInput').disabled = true
@@ -31,7 +31,7 @@ const keyCheckDecimal = function() {
     }
     let key = String.fromCharCode(code)
     let allowed = "0123456789".split("");
-    let r = allowed.includes(key.toLowerCase()) && lenCheck();
+    let r = (allowed.includes(key.toLowerCase()) && lenCheck()) || code == 8;
     if (r) {
         document.getElementById('binaryInput').disabled = true
         document.getElementById('decimalInput').disabled = false
@@ -51,7 +51,7 @@ const keyCheckHexadecimal = function() {
     }
     let key = String.fromCharCode(code)
     let allowed = "0123456789abcdef".split("");
-    let r = allowed.includes(key.toLowerCase()) && lenCheck();
+    let r = (allowed.includes(key.toLowerCase()) && lenCheck()) || code == 8;
     if (r) {
         document.getElementById('binaryInput').disabled = true
         document.getElementById('decimalInput').disabled = true

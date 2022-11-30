@@ -86,5 +86,28 @@ button:hover {
 
 .output {
     color: rgba(255, 255, 255, 0.44);
-    margin-top: 20px;
+    margin-top: 5px;
+}
+
+span {
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.147);
+    border-color: rgba(255, 255, 255, 0.147);
+    border-style:solid;
+    border-radius: 5px 0px 0px 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.pwdcalc {
+    background-color: rgba(255, 255, 255, 0.321);
+    border-color: rgba(255, 255, 255, 0.321);
+    border-style: solid;
+    border-radius: 0px 5px 5px 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    color: rgb(255, 255, 255)
+}
+.round {
+    border-radius: 5px 5px 5px 5px;
 }
