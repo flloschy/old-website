@@ -20,7 +20,7 @@ const keyCheckBinary = function() {
     return r
 }
 
-const keyCheckDecimal = function() {
+const keyCheckDecimal = function(point) {
     let code = window.event.keyCode
     if (code == 13) {
         clearInput()
@@ -31,6 +31,10 @@ const keyCheckDecimal = function() {
     }
     let key = String.fromCharCode(code)
     let allowed = "0123456789".split("");
+    if (point) {
+        allowed.push("¾")
+    }
+
     let r = (allowed.includes(key.toLowerCase()) && lenCheck()) || code == 8;
     if (r) {
         document.getElementById('binaryInput').disabled = true

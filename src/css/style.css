@@ -45,7 +45,12 @@ body {
     text-align: center;
 }
 
+br {
+    user-select: none;
+}
+
 input {
+    user-select: none;
     width: 20%;
     border-radius: 5px;
     border-style:solid;
@@ -131,4 +136,9 @@ span {
     border-style: solid;
     border-radius: 5px;
     user-select: none;
+}
+
+.title {
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
 }
