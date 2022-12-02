@@ -142,3 +142,47 @@ span {
     text-decoration: underline;
     color: rgb(255, 255, 255);
 }
+
+.pr {
+    background-color: rgba(255, 255, 255, 0.147);
+    border-color: rgba(255, 255, 255, 0.147);
+    border-style:solid;
+    border-radius: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 10px;
+    padding-bottom: 4px;
+}
+
+.prtitle {
+    text-decoration: none;
+    font-size: 30px;
+    color:rgb(255, 255, 255);
+}
+.prdec {
+    font-weight: 400;
+    font-size: 20px;
+    color:rgb(255, 255, 255);
+}
+.prlanguage {
+    font-weight: 400;
+    font-size: 13px;
+    color:rgba(255, 255, 255, 0.5);
+}
+.prtag {
+    font-size: 12px;
+    color:rgba(255, 255, 255, 0.5);
+    background-color: rgba(0,0,0,.2);
+    border-radius: 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.prsplit {
+    font-weight: 400;
+    font-size: 8px;
+    color:rgba(255, 255, 255, 0.5);
+    margin-left: 2px;
+    margin-right: 2px;
+}

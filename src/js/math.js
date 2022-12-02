@@ -94,12 +94,12 @@ const calcPoints = function() {
     b = Math.round(b*100)/100
     m = Math.abs(m) == Infinity ? 0 : m
     b = Math.abs(b) == Infinity ? 0 : b
-    m = (m == 1 || m == 0) ? "" : m
+    m = (m == 1 || m == 0) ? "" : (m == -1 ? "" : m)
     b = b == 0 ? "" : b
 
     if (xSame) func = "X shouldn't be the same"
-    else if (ySame) b = document.getElementById('pointy1').value
-    if (!xSame) func = `${m}x${b > 0 ? "+" : ""}${b}`
+    else if (ySame) func = document.getElementById('pointy1').value
+    else func = `${m}x${b > 0 ? "+" : ""}${b}`
     
     
     let out = document.getElementById("functionoutput")
