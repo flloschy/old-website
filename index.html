@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onmousemove="updateMousePos(event)">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
   <script src="./src/js/converter.js"></script>
   <script src="./src/js/password.js"></script>
   <script src="./src/js/redirect.js"></script>
-  <script src="./src/js/links.js"></script>
+  <script src="./src/js/links2.js"></script>
   <script src="./src/js/math.js"></script>
   <script src="./src/js/projects.js"></script>
   <link rel="stylesheet"href="./src/css/style.css"/>
@@ -24,6 +24,8 @@
     <a onclick="updateContent('math'); ">Math</a>
     <a onclick="loadProjects()">Projects</a>
   </div>
-  <div id="content" class="center"></div>
+  <div id="content" class="center">
+    <img src="./src/images/cow_winter_small.png" width="100%" style="height: calc(100% - 22px); position:absolute; left:0px">
+  </div>
 </body>
 </html>
