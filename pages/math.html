@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../src/css/base.css" media="screen" />
+    <script src="../src/js/math.js"></script>
+    <script src="../src/js/base.js"></script>
+    <title>Floschy.me</title>
+</head>
+<body onresize="screenUpdate()" onload="screenUpdate()">
+    <div class="header" id="header">
+        <ul>
+            <a href="../index.html"    class="headerITEM">Home</a>
+            <a href="./converter.html" class="headerITEM">Converter</a>
+            <a href="./password.html"  class="headerITEM">Password</a>
+            <a href="./redirect.html"  class="headerITEM">Redirect</a>
+            <a href="./links.html"     class="headerITEM">Links</a>
+            <a href="./math.html"      class="headerITEM headerACTIVE">Math</a>
+            <a href="./projects.html"  class="headerITEM">Projects</a>
+        </ul>
+    </div>
+    <div class="center content" id="content">
+        <article>Liniar functions</article>
+        <input placeholder="x1" id="inX1" onkeydown="return keyCheck('inX1')" onkeyup="update()"><input placeholder="y1" id="inY1" onkeydown="return keyCheck('inY1')" onkeyup="update()"><br>
+        <input placeholder="x2" id="inX2" onkeydown="return keyCheck('inX2')" onkeyup="update()"><input placeholder="y2" id="inY2" onkeydown="return keyCheck('inY2')" onkeyup="update()"><br>
+        <input placeholder="m" id="inM" onkeydown="return keyCheck('inM')" onkeyup="update()"><input placeholder="b" id="inB" onkeydown="return keyCheck('inB')" onkeyup="update()"><br><br>
+        <div class="output" style="transform: translate(50%, -8px);"><span>f(x)=</span><output id="outFunc"></output></div><br>
+        <div class="output" style=""><span>x intercept</span><output id="outXint"></output></div><br>
+        <div class="output" style="transform: translate(50%, 8px);"><span>y intercept</span><output id="outYint"></output></div><br><br>
+        <button id="run" onclick="updateOutput()">Calculate</button><br><br>
+    </div>
+</body>
+</html>

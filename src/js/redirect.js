@@ -20,8 +20,6 @@ const links = [
     "http://www.themostamazingwebsiteontheinternet.com/",
     "https://onesquareminesweeper.com/",
     "https://media.tenor.com/0lbyPcn3-FgAAAAS/engineer-tf2.gif",
-    "https://www.fiverr.com/floschy_/make-a-custom-discord-bot",
-    "https://www.fiverr.com/floschy_/create-you-a-program-in-python",
     "https://github.com/flloschy",
     "https://wiki.teamfortress.com/wiki/Engineer",
     "http://downloadramdownloadramdownloadram.com/",
@@ -68,6 +66,6 @@ const links = [
     "https://www.google.com/fbx?fbx=minesweeper"
 ]
 
-const randomWebsite = function() {
+const redirect = function() {
     window.location.href = links[Math.floor(Math.random() * links.length)];
 }

@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" onmousemove="updateMousePos(event)">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./src/js/test.js"></script>
-  <script src="./src/js/converter.js"></script>
-  <script src="./src/js/password.js"></script>
-  <script src="./src/js/redirect.js"></script>
-  <script src="./src/js/links2.js"></script>
-  <script src="./src/js/math.js"></script>
-  <script src="./src/js/projects.js"></script>
-  <link rel="stylesheet"href="./src/css/style.css"/>
-  <title>Floschy.me</title>
-  <link rel="icon" href="./src/images/cow_winter_small.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./src/css/base.css" media="screen" />
+    <script src="./src/js/index.js"></script>
+    <script src="../src/js/base.js"></script>
+    <title>Floschy.me</title>
 </head>
-<body>
-  <div class="header">
-    <a onclick="updateContent('converter')">converter</a>
-    <a onclick="updateContent('password')">password</a>
-    <a onclick="updateContent('redirect')">redirect</a>
-    <a onclick="updateContent('links'); updatePos();">Links</a>
-    <a onclick="updateContent('math'); ">Math</a>
-    <a onclick="loadProjects()">Projects</a>
-  </div>
-  <div id="content" class="center">
-    <img src="./src/images/cow_winter_small.png" width="100%" style="height: calc(100% - 22px); position:absolute; left:0px">
-  </div>
+<body onresize="screenUpdate()" onload="screenUpdate()">
+    <div class="header" id="header">
+        <ul>
+            <a id="1" href="./index.html"           class="headerITEM headerACTIVE">Home</a>
+            <a id="2" href="./pages/converter.html" class="headerITEM">Converter</a>
+            <a id="3" href="./pages/password.html"  class="headerITEM">Password</a>
+            <a id="4" href="./pages/redirect.html"  class="headerITEM">Redirect</a>
+            <a id="5" href="./pages/links.html"     class="headerITEM">Links</a>
+            <a id="6" href="./pages/math.html"      class="headerITEM">Math</a>
+            <a id="7" href="./pages/projects.html"  class="headerITEM">Projects</a>
+            <a href="./pages/designtests.html"    class="headerITEM">Design tests</a>
+        </ul>
+    </div>
+    <img src="./src/images/cow.png" width="100%" style="height: calc(100% - 0px); position:absolute; left:0px">
 </body>
 </html>

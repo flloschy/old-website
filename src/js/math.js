@@ -1,94 +1,96 @@
-
-
-
-
-const keyCheckDecimalWithPoint = function() {
+const keyCheck = (id) => {
     let code = window.event.keyCode
-    if (code == 8) {
-        return  true;
-    }
     let key = String.fromCharCode(code)
-    let keys = "0123456789¾½"
-    return keys.includes(key)
+    let input = document.getElementById(id)
+    
+    console.log(code);
+
+    if (code == 8 /* backspace */) return true
+
+    if (code == 190 /* . */) {
+        if (input.value.split("").includes(".")) return false
+        return true
+    }
+    
+    if (code == 13 /* enter */) {
+        updateOutput()
+        false
+    }
+    if ("0123456789".split("").includes(key)) return true
+    return false
 }
 
+const update = () => {
+    let x1 = document.getElementById('inX1')
+    let x2 = document.getElementById('inX2')
+    let y1 = document.getElementById('inY1')
+    let y2 = document.getElementById('inY2')
+    let m = document.getElementById('inM')
+    let b = document.getElementById('inB')
 
+    let bx1 = x1.value != ""
+    let bx2 = x2.value != ""
+    let by1 = y1.value != ""
+    let by2 = y2.value != ""
+    let bm = m.value != ""
+    let bb = b.value != ""
 
-
-
-const pointDisable = function() {
-    let x1 = document.getElementById('pointx1')
-    let x2 = document.getElementById('pointx2')
-    let y1 = document.getElementById('pointy1')
-    let y2 = document.getElementById('pointy2')
-    let m = document.getElementById('m')
-    let b = document.getElementById('b')
-
-    let x1v = x1.value != ""
-    let x2v = x2.value != ""
-    let y1v = y1.value != ""
-    let y2v = y2.value != ""
-    let mv = m.value != ""
-    let bv = b.value != ""
-
-    if (mv && bv) {x1.disabled = true}
+    if (bm && bb) {x1.disabled = true}
     else {x1.disabled = false}
 
-    if (mv && bv) {y1.disabled = true}
+    if (bm && bb) {y1.disabled = true}
     else {y1.disabled = false}
 
-    if (((x1v && y1v) && (mv && bv)) || bv || mv) {x2.disabled = true}
+    if (((bx1 && by1) && (bm && bb)) || bb || bm) {x2.disabled = true}
     else {x2.disabled = false}
 
-    if (((x1v && y1v) && (mv && bv)) || bv || mv) {y2.disabled = true}
+    if (((bx1 && by1) && (bm && bb)) || bb || bm) {y2.disabled = true}
     else {y2.disabled = false}
 
-    if (((x1v || y1v) && (x2v || y2v)) || (bv && (x1v || y1v)) ) {m.disabled = true}
+    if (((bx1 || by1) && (bx2 || by2)) || (bb && (bx1 || by1)) ) {m.disabled = true}
     else {m.disabled = false}
 
-    if (((x1v || y1v) && (x2v || y2v)) || (mv && (x1v || y1v))) {b.disabled = true}
+    if (((bx1 || by1) && (bx2 || by2)) || (bm && (bx1 || by1))) {b.disabled = true}
     else {b.disabled = false}
-
-
-
 }
 
-const calcPoints = function() {
-    let x1 = document.getElementById('pointx1').value != ""
-    let x2 = document.getElementById('pointx2').value != ""
-    let y1 = document.getElementById('pointy1').value != ""
-    let y2 = document.getElementById('pointy2').value != ""
-    let m = document.getElementById('m').value != ""
-    let b = document.getElementById('b').value != ""
+const updateOutput = () => {
+    let x1 = document.getElementById('inX1').value != ""
+    let x2 = document.getElementById('inX2').value != ""
+    let y1 = document.getElementById('inY1').value != ""
+    let y2 = document.getElementById('inY2').value != ""
+    let m = document.getElementById('inM').value != ""
+    let b = document.getElementById('inB').value != ""
+
     let xSame = false
     let ySame = false
     let func = ""
 
     if (x1 && y1 && x2 && y2) {
-        let px1 = parseFloat(document.getElementById('pointx1').value)
-        let py1 = parseFloat(document.getElementById('pointy1').value)
-        let px2 = parseFloat(document.getElementById('pointx2').value)
-        let py2 = parseFloat(document.getElementById('pointy2').value)
+        let px1 = parseFloat(document.getElementById('inX1').value)
+        let py1 = parseFloat(document.getElementById('inY1').value)
+        let px2 = parseFloat(document.getElementById('inX2').value)
+        let py2 = parseFloat(document.getElementById('inY2').value)
         xSame = px1 == px2
         ySame = py1 == py2
         m = (py1-py2)/(px1-px2) || 0
         b = py1 - m*px1 || 0
     }
     else if (x1 && y1 && m) {
-        let = px1 = parseFloat(document.getElementById('pointx1').value)
-        let = py1 = parseFloat(document.getElementById('pointy1').value)
-        m = document.getElementById('m').value
+        let = px1 = parseFloat(document.getElementById('inX1').value)
+        let = py1 = parseFloat(document.getElementById('inY1').value)
+        m = document.getElementById('inM').value
         b = py1 - m*px1
     }
     else if (x1 && y1 && b) {
-        let = px1 = parseFloat(document.getElementById('pointx1').value)
-        let = py1 = parseFloat(document.getElementById('pointy1').value)
-        b = document.getElementById('b').value
+        let = px1 = parseFloat(document.getElementById('inX1').value)
+        let = py1 = parseFloat(document.getElementById('inY1').value)
+        b = document.getElementById('inB').value
         m = (py1-b)/(px1-0)
     }
     else if (b && m) {
-        m = document.getElementById('m').value
-        b = document.getElementById('b').value
+        m = document.getElementById('inM').value
+        b = document.getElementById('inB').value
     }
     m = Math.round(m*100)/100
     b = Math.round(b*100)/100
@@ -97,17 +99,20 @@ const calcPoints = function() {
     m = (m == 1 || m == 0) ? "" : (m == -1 ? "" : m)
     b = b == 0 ? "" : b
 
-    if (xSame) func = "X shouldn't be the same"
-    else if (ySame) func = document.getElementById('pointy1').value
+    if (xSame) func = "X1 and X2 cant be equal"
+    else if (ySame) func = document.getElementById('inY1').value
     else func = `${m}x${b > 0 ? "+" : ""}${b}`
     
     
-    let out = document.getElementById("functionoutput")
+    let out = document.getElementById("outFunc")
     out.innerHTML = func
+
+    let xIn = document.getElementById("outXint")
+    let r = Math.round(((0 - b) / m)*100)/100
+    xIn.innerHTML = `${r}`
+
+    let yIn = document.getElementById("outYint")
+    yIn.innerHTML = `${b}`
+
+
 }
-
-
-
-
-
-
