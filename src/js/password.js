@@ -39,18 +39,29 @@ const checkPwd = () => {
     let repeatScore = /(.).*\1/.test(inp) ? 0 : 100;
     document.getElementById("repeatScoreOut").innerHTML = `${repeatScore}%`
 
-    let hasNumbers = "0123456789".split("").some(e => inp.split("").includes(e)) ? 100 : 0
+    let hasNumbers = Math.round((inp.split("").filter(e => "0123456789".split("").includes(e)).length / inp.length)*100*100) / 100 * 4
     document.getElementById("numberScoreOut").innerHTML = `${hasNumbers}%`
 
-    let haslower = "abcdefghijklmnopqrstuvwxyz".split("").some(e => inp.split("").includes(e)) ? 100 : 0
+    let haslower = Math.round((inp.split("").filter(e => "abcdefghijklmnopqrstuvwxyz".split("").includes(e)).length / inp.length)*100*100) / 100 * 4
     document.getElementById("lowerScoreOut").innerHTML = `${haslower}%`
 
-    let hasupper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").some(e => inp.split("").includes(e)) ? 100 : 0
+    let hasupper = Math.round((inp.split("").filter(e => "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").includes(e)).length / inp.length)*100*100) / 100 * 4
     document.getElementById("upperScoreOut").innerHTML = `${hasupper}%`
 
-    let hasextra = "!\"§$%&/()=?`´{[]}\\~+*#'-_.:,;<>|@^°".split("").some(e => inp.split("").includes(e)) ? 100 : 0
+    let hasextra = Math.round((inp.split("").filter(e => "!\"§$%&/()=?`´{[]}\\~+*#'-_.:,;<>|@^°".split("").includes(e)).length / inp.length)*100*100) / 100 * 4
     document.getElementById("extraScoreOut").innerHTML = `${hasextra}%`
 
     let overallScore = Math.round(((lengthScore + uniqeCharsScore + repeatScore + hasNumbers + haslower + hasupper + hasextra) / 700 ) * 100 * 100) / 100
     document.getElementById("overallScoreOut").innerHTML = `${overallScore}%`
+}
+
+const infoMenuOpen = () => {
+    console.log("Yo");
+    const info = document.getElementById('pwdcheckinfo')
+    info.style.height = info.scrollHeight + "px"
+}
+const infoMenuClose = () => {
+    console.log("Yo");
+    const info = document.getElementById('pwdcheckinfo')
+    info.style.height = "30px"
 }
