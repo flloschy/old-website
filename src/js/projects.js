@@ -13,9 +13,15 @@ const loadProjects = async () => {
     let repos = await (await fetch("https://api.github.com/users/flloschy/repos")).json()
     content.innerHTML = ""
 
+    let privateCount = 0
+    let forksCount = 0
+
     repos.forEach(async element => {
-        if (element['fork']) return
-        if (element['private']) return
+        let next =  true
+        console.log(element);
+        if (element['fork']) {forksCount += 1; next = false}
+        if (element['private']) {privateCount += 1; next = false}
+        if (!next) return
 
         let name = element["name"] ?? "No Name available"
         let url = element["html_url"]
@@ -45,6 +51,11 @@ const loadProjects = async () => {
                               `</div>`
 
     });
+
+    content.innerHTML += `<article style="margin-bottom:5px">More info</article>` +
+                            // `<output>${privateCount} additional private repo(s)</output><br><br>` +
+                            `<output>${forksCount} additional forked repo(s)</output><br><br><br>`
+
 
     content.innerHTML += `<article style="margin-bottom:5px">What does what mean?</article>` + 
                          `<div class="projectExample">` +
