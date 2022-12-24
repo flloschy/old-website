@@ -66,7 +66,17 @@ const updateOutput = () => {
     let ySame = false
     let func = ""
 
-    if (x1 && y1 && x2 && y2) {
+    if (!x1 && !x2 && !y1 && !y2 && !m && !b) {
+        let out = document.getElementById("outFunc")
+        out.innerHTML = "To calculate a function you need to enter values"
+        return
+    }
+    else if ([x1, x2, y1, y2, m, b].filter(e => e).length < 2) {
+        let out = document.getElementById("outFunc")
+        out.innerHTML = "To calculate a function you need to enter more values"
+        return
+    }
+    else if (x1 && y1 && x2 && y2) {
         let px1 = parseFloat(document.getElementById('inX1').value)
         let py1 = parseFloat(document.getElementById('inY1').value)
         let px2 = parseFloat(document.getElementById('inX2').value)
@@ -96,7 +106,6 @@ const updateOutput = () => {
     b = Math.round(b*100)/100
     m = Math.abs(m) == Infinity ? 0 : m
     b = Math.abs(b) == Infinity ? 0 : b
-    m = (m == 1 || m == 0) ? "" : (m == -1 ? "" : m)
     b = b == 0 ? "" : b
 
     if (xSame) func = "X1 and X2 cant be equal"
@@ -109,7 +118,8 @@ const updateOutput = () => {
 
     let xIn = document.getElementById("outXint")
     let r = Math.round(((0 - b) / m)*100)/100
-    xIn.innerHTML = `${r}`
+    console.log(r);
+    xIn.innerHTML = `${isNaN(r) ? "" : (Math.abs(r) == Infinity ? "No intercept" : r)}`
 
     let yIn = document.getElementById("outYint")
     yIn.innerHTML = `${b}`
