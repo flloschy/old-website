@@ -1,24 +1,22 @@
 const sleep = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
- }
-
-
-
+}
+let id
+let indexes = []
 
 const loadProjects = async () => {
     let content = document.getElementById("content")
-    content.innerHTML = `<a>Loading...</a>`
 
-    await sleep(1000);
     let repos = await (await fetch("https://api.github.com/users/flloschy/repos")).json()
     content.innerHTML = ""
 
     let privateCount = 0
     let forksCount = 0
 
-    repos.forEach(async element => {
+    repos.forEach(async (element, index) => {
+        indexes.push(index)
+
         let next =  true
-        console.log(element);
         if (element['fork']) {forksCount += 1; next = false}
         if (element['private']) {privateCount += 1; next = false}
         if (!next) return
@@ -39,7 +37,7 @@ const loadProjects = async () => {
             tags += `<div style="display:inline; white-space: nowrap;"><img class="projectIcon" src="../src/images/tags.svg"><a class="projectTag">${e}</a></div>`
         })
 
-        content.innerHTML += `<div class="project">` +
+        content.innerHTML +=  `<div class="project" id="i${index}" style="opacity:0">` +
                                 `<img class="projectIcon" src="../src/images/code-slash.svg"><a class="projectTitle" href="${url}" target="_blank">${name}</a><br>` +
                                 `<img class="projectIcon" src="../src/images/card-text.svg"><a class="projectDescription">${description}</a><br>` +
                                 `${tags}<br><br>`+
@@ -49,13 +47,12 @@ const loadProjects = async () => {
                                 `<img class="projectIcon" src="../src/images/clock.svg"><a class="projectCreated">${created}</a>` +
                                 `<img class="projectIcon" src="../src/images/clock-history.svg"><a class="projectUpdated">${updated}</a>` +
                               `</div>`
-
+        //content.innerHTML 
     });
 
-    content.innerHTML += `<article style="margin-bottom:5px">More info</article>` +
+    content.innerHTML +=    `<article style="margin-bottom:5px">More info</article>` +
                             // `<output>${privateCount} additional private repo(s)</output><br><br>` +
                             `<output>${forksCount} additional forked repo(s)</output><br><br><br>`
-
 
     content.innerHTML += `<article style="margin-bottom:5px">What does what mean?</article>` + 
                          `<div class="projectExample">` +
@@ -68,12 +65,23 @@ const loadProjects = async () => {
                             `<img class="projectIcon" src="../src/images/clock.svg"><a class="projectCreated">Date of Creation</a>` +
                             `<img class="projectIcon" src="../src/images/clock-history.svg"><a class="projectUpdated">Date of last Update</a>` + 
                          `</div>`
-
-
-
-
-
-
-
-
+    document.getElementById("i0").style.opacity = "1"
 }
+
+
+const addProject = () => {
+    var limit = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
+        document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
+
+    console.log(Math.ceil(document.documentElement.scrollHeight - document.documentElement.clientHeight) , window.scrollY+5);
+    for (let index in indexes) {
+        let element = document.getElementById(`i${index}`)
+        if (element) {
+            if ((window.scrollY + window.innerHeight)/4*3 - element.offsetHeight / 2 > element.offsetTop || Math.ceil(document.documentElement.scrollHeight - document.documentElement.clientHeight) < window.scrollY+5) {
+                element.style.opacity = "1"
+            }
+        }
+    }
+}
+
+window.addEventListener('scroll', addProject)
