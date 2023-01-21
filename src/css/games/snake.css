@@ -1,0 +1,51 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+#game {
+    width: fit-content;
+    padding: 5px;
+    background-color: rgb(15, 95, 26);
+    margin: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 5px;
+}
+
+.board {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin-left: 5px;
+    border-radius: 5px;
+    transition: 150ms ease-out;
+}
+
+.background {
+    /*background-color: rgb(15, 95, 26);*/
+}
+.apple {
+    background-color: rgb(151, 22, 22);
+}
+.snake {
+    background-color: rgb(32, 163, 173);
+}
+.head {
+    background-color: rgb(183, 209, 211);
+}
+.deadSnake {
+    opacity: .5;
+}
+.deadHead {
+    opacity: .5;
+}
+a {
+    color: white;
+}
+
+#infos {color:white}
