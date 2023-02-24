@@ -27,7 +27,24 @@ function updateCursor() {
     );
 }
 
-function done() {
+function itsDone() {
+    console.log("Yo");
+    console.log(navigator.userAgent);
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        let a = document.createElement('a')
+        a.style = "color: white; font-size: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+        a.innerHTML = "This website is not optimized for mobile devices. Please visit it on a desktop computer."
+        document.body = a;
+        return
+    }
+
+
+
+
+
+
+
+
     block = document.getElementById("block");
     ring = document.getElementById("ring");
 
