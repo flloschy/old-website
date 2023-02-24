@@ -28,23 +28,6 @@ function updateCursor() {
 }
 
 function itsDone() {
-    console.log("Yo");
-    console.log(navigator.userAgent);
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-        let a = document.createElement('a')
-        a.style = "color: white; font-size: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
-        a.innerHTML = "This website is not optimized for mobile devices. Please visit it on a desktop computer."
-        document.body = a;
-        return
-    }
-
-
-
-
-
-
-
-
     block = document.getElementById("block");
     ring = document.getElementById("ring");
 
@@ -99,63 +82,60 @@ let id = setInterval(function () {
     title.innerHTML += text.shift();
 }, 100);
 
-
 let Rid = undefined;
 let Nid = undefined;
-let i = 0
-let u = 0
+let i = 0;
+let u = 0;
 function randomize() {
-  if (Nid) clearInterval(Nid);
+    if (Nid) clearInterval(Nid);
 
-  let title = document.getElementById("title");
-  i=0;
-  Rid = setInterval(function () {
-    if (i == title.innerHTML.length) {
-      i = 0;
-      u += 1;
-      if (u == 3) {
-        u = 0;
-        clearInterval(Rid)
-        Rid= undefined;
-        return
-      }
-    };
-    let text2 = title.innerHTML.split("");
-    text2[i] = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-    text2[Math.floor(Math.random() * title.innerHTML.length)] = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-    title.innerHTML = text2.join("");
+    let title = document.getElementById("title");
+    i = 0;
+    Rid = setInterval(function () {
+        if (i == title.innerHTML.length) {
+            i = 0;
+            u += 1;
+            if (u == 3) {
+                u = 0;
+                clearInterval(Rid);
+                Rid = undefined;
+                return;
+            }
+        }
+        let text2 = title.innerHTML.split("");
+        text2[i] = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+        text2[Math.floor(Math.random() * title.innerHTML.length)] =
+            String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+        title.innerHTML = text2.join("");
 
-    i++;
-
-  }, 50);
+        i++;
+    }, 50);
 }
 
 function normit() {
+    if (Rid) clearInterval(Rid);
 
-  if (Rid) clearInterval(Rid);
+    let title = document.getElementById("title");
+    i = 0;
+    Nid = setInterval(function () {
+        if (i == title.innerHTML.length) {
+            i = 0;
+            u += 1;
+            if (u == 3) {
+                u = 0;
+                clearInterval(Nid);
+                Nid = undefined;
+                return;
+            }
+        }
+        let text2 = title.innerHTML.split("");
+        if (u == 2) {
+            text2[i] = originalText.split("")[i];
+        }
+        let r = Math.floor(Math.random() * title.innerHTML.length);
+        text2[r] = originalText.split("")[r];
+        title.innerHTML = text2.join("");
 
-  let title = document.getElementById("title");
-  i=0;
-  Nid = setInterval(function () {
-    if (i == title.innerHTML.length) {
-      i = 0;
-      u += 1;
-      if (u == 3) {
-        u = 0;
-        clearInterval(Nid)
-        Nid= undefined;
-        return
-      }
-    };
-    let text2 = title.innerHTML.split("");
-    if (u == 2) {
-      text2[i] = originalText.split("")[i];
-    }
-    let r = Math.floor(Math.random() * title.innerHTML.length) 
-    text2[r] = originalText.split("")[r];
-    title.innerHTML = text2.join("");
-
-    i++;
-
-  }, 50);
+        i++;
+    }, 50);
 }
