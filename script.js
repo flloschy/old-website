@@ -1,7 +1,7 @@
 const textList = [
-    {text: "welcome to my website", link: "https://floschy.me/"},
+    {text: "Welcome", link: "https://floschy.me/"},
     {text: "floschy.me", link: "https://floschy.me/"},
-    {text: "github.com/flloschy", link: "https://github.com/flloschy"},
+    {text: "flloschy", link: "https://github.com/flloschy"},
     {text: "floschy#1248", link: "https://discord.com/users/578620425060483072"},
 ]
 let current = textList.length - 1;
@@ -11,6 +11,8 @@ var ring, block;
 var x = window.innerWidth/2;
 var y = window.innerHeight/2;
 var moving = false;
+let bar = NaN;
+let pageHeight = 0;
 
 function updateCursor() {
     moving = true;
@@ -25,7 +27,7 @@ function updateCursor() {
             left: x - ring.clientWidth / 2 + "px",
             top: y - ring.clientHeight / 2 + window.scrollY + "px",
         },
-        { duration: 500, fill: "forwards", easing: "ease-in-out" }
+        { duration: 3000, fill: "forwards", easing: "ease-in-out" }
     );
 
     block.animate(
@@ -37,9 +39,26 @@ function updateCursor() {
     );
 }
 
+function scrollableArea() {
+    function findHighestNode(nodesList) {
+        for (let i = nodesList.length - 1; i >= 0; i--) {
+            if (nodesList[i].scrollHeight && nodesList[i].clientHeight) {
+                var elHeight = Math.max(nodesList[i].scrollHeight, nodesList[i].clientHeight);
+                pageHeight = Math.max(elHeight, pageHeight);
+            }
+            if (nodesList[i].childNodes.length) findHighestNode(nodesList[i].childNodes);
+        }
+    }
+
+    findHighestNode(document.documentElement.childNodes);
+};
+
+
 function itsDone() {
+    scrollableArea()
     block = document.getElementById("block");
     ring = document.getElementById("ring");
+    bar = document.getElementById('scrollBlock')
 
     updateCursor();
 
@@ -50,6 +69,8 @@ function itsDone() {
 
     document.addEventListener("scroll", function (event) {
         updateCursor();
+        console.log(getScrollPosition());
+        bar.style.top = window.scrollY + window.innerHeight*getScrollPosition() + 'px' 
     });
 
     setInterval(function () {

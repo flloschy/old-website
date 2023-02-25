@@ -1,21 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap");
 body {
-    background-color: rgb(2, 0, 30);
+    background-color: rgb(1, 0, 7);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     width: 100%;
     height: 100%;
-    animation: backgroundAnimation 30s infinite ease-in-out alternate-reverse;
 }
-@keyframes backgroundAnimation {
-    0% {
-        background-color: rgb(2, 0, 30);
-    }
-    100% {
-        background-color: rgb(4, 4, 4);
-    }
+::-webkit-scrollbar {
+    width: 10px;
+    background:transparent;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+      background: transparent;
 }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+          0deg,
+          rgb(15, 163, 18),
+          rgb(15, 126, 163)
+      );
+      border-radius: 2px;
+  }
+
+html, body{
+    scroll-behavior:smooth;
+  }
 
 
 .screenMiddle {
@@ -34,7 +48,7 @@ article {
 }
 
 #ring {
-    z-index: -1;
+    z-index: 99999999999;
     overflow: hidden;
     position: absolute;
     width: 100px;
@@ -47,7 +61,8 @@ article {
     border-width: 5px;
     border-color: rgb(255, 255, 255);
     border-style: solid;
-    filter: blur(5px);
+    filter: blur(20px);
+    opacity: .3;
     animation: ring 5s infinite ease-in-out;
     transition: opacity 1000ms ease-in-out;
 }
@@ -90,10 +105,14 @@ article {
 }
 
 .right {
-    margin-left: calc(100% - 45% - 40px);
+    text-align: right;
+    float: right;
+    margin-right: 15px;
 }
 .left {
-    margin-left: 10px;
+    text-align: left;
+    float: left;
+    margin-left: 15px;
 }
 
 #content {
@@ -103,27 +122,29 @@ article {
     height: fit-content;
 }
 
-article {
-    width: 45%;
-    height: fit-content;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    background-color: rgba(112, 20, 126, 0.5);
-    padding: 10px;
-    border-radius: 10px;
-    border-color: rgb(255, 0, 242);
-    border-style: solid;
-    margin-top: 50%;
-    box-shadow: 0 0 0 0 rgb(0, 0, 0);
-    transition: background-color 1000ms ease-in-out;
+
+.niceBlue {
+    background-color: rgb(94, 150, 191);
 }
-article:hover {
-    background-color: rgba(112, 20, 126, 0.8);
+.nicePink {
+    background-color: rgb(180, 94, 191);
+}
+
+
+article {
+    display:block;
+    float: right;
+    width: 70%;
+    heigth: fit-content;
+    font-size: 25px;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    margin-top: 110%;
 }
 h1 {
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 0 rgb(0, 0, 0);
+    font-size: 60px;
     animation: textShadow 5s infinite ease-in-out;
     margin: 0;
     padding: 0;
@@ -142,6 +163,7 @@ h1 {
     text-align: center;
     font-size: 80px;
     color: transparent;
+    transform: translate(-50%, -50%);
 }
 
 #titleUnderline {
@@ -152,7 +174,7 @@ h1 {
     width: fit-content;
     height: fit-content;
     padding: 0;
-    transform: translate(-50%, -50%);
+    margin: auto;
 
     background: linear-gradient(
         45deg,
@@ -184,26 +206,50 @@ h1 {
         opacity: 0.8;
     }
 }
-
 #arrow {
-    z-index: 999;
-    width: 80px;
-    height: 80px;
-    opacity: 0;
+    user-select: none;
+    margin: auto;
+    padding: 0;
+    z-index: -999;
+    width: 248px;
+    height: fit-content;
     position: absolute;
-    top: 100%;
+    align-content: center;
+    top: 94%;
     left: 50%;
-    transform: translate(-50%, -300%);
-    color: rgb(67, 9, 105);
-    animation: intro2 3s 1.5s forwards ease-in-out;
+    color: rgb(92, 13, 144);
+    animation: arrowIntro 30s 0s forwards ease-in-out, hovver 2s alternate-reverse 5s infinite forwards ease-in-out;
 }
-@keyframes intro2 {
+@keyframes arrowIntro {
     0% {
-        transform: translateY(-300%);
         opacity: 0;
+        transform: translate(-50%, -100%);
     }
     100% {
-        transform: translateY(-110%);
-        opacity: 0.25;
+        opacity: .5;
+        transform: translate(-50%, 0%);
     }
+}
+@keyframes hovver {
+    0% {
+        transform: translate(-50%, -100%);
+    }
+    100% {
+        transform: translate(-50%, 0%);
+    }
+}
+.keyword {
+    cursor: pointer;
+    color: rgba(255, 255, 255, .5)
+}
+
+#scrollBlock {
+    top: 0;
+    opacity: .5;
+    width: 10px;
+    height: 100px;
+    position: absolute;
+    background: linear-gradient(0deg, rgb(255, 0, 0), rgb(0, 255, 0));
+    border-radius: 4px;
+    animation: wave 10s infinite forwards linear;
 }
