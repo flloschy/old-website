@@ -74,10 +74,14 @@ span {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(45deg, rgb(251, 255, 0), rgb(233, 6, 245));
-    animation: blockRotate 20s infinite linear, blockHue 30s infinite linear;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 0, 0),
+        rgba(255, 200, 0),
+        rgba(81, 255, 0)
+    );
+    animation: blockRotate 20s infinite linear, wave3 10s infinite linear;
     transition: filter 2500ms ease-in-out, opacity 1000ms ease-in-out;
-    filter: blur(150px);
 }
 
 @keyframes ring {
@@ -339,4 +343,13 @@ h1 {
         rgb(220, 253, 129)
     );
     animation: wave 10s linear forwards infinite;
+}
+
+@keyframes wave3 {
+    0% {
+        filter: blur(130px) hue-rotate(0deg);
+    }
+    100% {
+        filter: blur(130px) hue-rotate(360deg);
+    }
 }

@@ -29,11 +29,6 @@ let NAVlinks = NaN;
 function updateCursor() {
     moving = true;
 
-    block.style.filter =
-        "blur(150px) hue-rotate(" +
-        Math.floor((y + window.scrollY) / window.innerHeight) * 18 +
-        "deg)";
-
     ring.animate(
         {
             left: x - ring.clientWidth / 2 + "px",
@@ -146,9 +141,7 @@ function itsDone() {
                 window.scrollY -
                 window.outerHeight / 8;
             block.style.filter =
-                "blur(150px) hue-rotate(" +
-                Math.floor(Math.random() * 360) +
-                "deg)";
+                "blur(150px)"
             block.animate(
                 {
                     left: x + randomX + "px",
