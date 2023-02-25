@@ -93,7 +93,13 @@ function itsDone() {
     aboutMe = document.getElementById("aboutMe");
     projects = document.getElementById("projects");
     links = document.getElementById("links");
+
     updateCursor();
+
+    window.scrollTo({
+        top: 0,
+        left: 0
+    })
 
     document.addEventListener("mousemove", function (event) {
         [x, y] = [event.clientX, event.clientY];
