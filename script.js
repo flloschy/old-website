@@ -10,7 +10,7 @@ const textList = [
 let current = textList.length - 1;
 let temptext = textList[current].text.split("");
 let id = undefined;
-var ring, block;
+var block;
 var x = window.innerWidth / 2;
 var y = window.innerHeight / 2;
 var moving = false;
@@ -29,20 +29,12 @@ let NAVlinks = NaN;
 function updateCursor() {
     moving = true;
 
-    ring.animate(
-        {
-            left: x - ring.clientWidth / 2 + "px",
-            top: y - ring.clientHeight / 2 + window.scrollY + "px",
-        },
-        { duration: 3000, fill: "forwards", easing: "ease-in-out" }
-    );
-
     block.animate(
         {
             left: x - block.clientWidth / 2 + "px",
             top: y - block.clientHeight / 2 + window.scrollY + "px",
         },
-        { duration: 6000, fill: "forwards", easing: "ease-in-out" }
+        { duration: 15000, fill: "forwards", easing: "ease-in-out" }
     );
 }
 
@@ -78,7 +70,6 @@ function unselectAll() {
 function itsDone() {
     scrollableArea();
     block = document.getElementById("block");
-    ring = document.getElementById("ring");
     bar = document.getElementById("scrollBlock");
     NAVhome = document.getElementById("navItem1");
     NAVaboutMe = document.getElementById("navItem2");
@@ -130,9 +121,6 @@ function itsDone() {
 
     setInterval(function () {
         if (!moving) {
-            ring.style.opacity = 0;
-            block.style.opacity = 0.5;
-
             const randomX =
                 Math.floor((Math.random() * window.outerWidth) / 4) -
                 window.outerWidth / 8;
@@ -151,8 +139,6 @@ function itsDone() {
             );
         } else {
             moving = false;
-            ring.style.opacity = 1;
-            block.style.opacity = 1;
         }
     }, 2500);
     toggle();
@@ -212,4 +198,61 @@ function toggle() {
 
 function scrollIt(hash) {
     location.hash = "#" + hash;
+}
+
+
+
+async function loadProjects() {
+
+    let repos = await (await fetch("https://api.github.com/users/flloschy/repos")).json();
+    let j = 0
+    const projects = document.getElementById('projectContent')
+    for (let i = 0; i < repos.length; i++) {
+        console.log(repos[i]['fork']);
+        if (repos[i]['fork']) continue
+        j++
+        const name = repos[i]['name']
+        const url = "https://github.com/" + repos[i]['full_name']
+        const description = !repos[i]['description'] ? "[ No description ]" : repos[i]['description']
+        const topics = repos[i]['topics']
+        let creation = new Date(repos[i]['created_at'])
+        const languages = await(await fetch(repos[i]['languages_url'])).json();
+        
+        let tags = ""
+        topics.forEach(e => {
+            tags += `<li>${e}</li>`
+        })
+
+        if (tags) {
+            tags = `<ol class="projectList"><li class="keyword">Topics: </li>${tags}</ol>`
+        }
+
+        let langs = ""
+        Object.keys(languages).forEach(e => {
+            langs += `<li>${e}</li>`
+        });
+        if (langs) {
+            langs = `<ul class="projectLanguages"><li class="keyword">Languages: </li>${langs}</ul>`
+        }
+
+
+        creation = creation.toDateString().split(" ")
+        creation.shift()
+        creation = creation.join("/")
+
+
+
+        const str = `<article class="${j%2==0 ? 'left nicePink' : 'right niceBlue'} projectArticle">` +
+            (j%2==0 ? `<h1><a href="${url}" target="_blank">${name} <a class="projectDate">${creation}</a></a></h1>` :
+                      `<h1><a class="projectDate">${creation}</a><a href="${url}" target="_blank"> ${name}</a></h1>`
+            )+
+            `${description}` +
+            `${langs}` +
+            `${tags}` +
+        `</article>`
+
+        projects.innerHTML += str;
+
+    }
+
 }

@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="style.css" />
         <script src="script.js"></script>
     </head>
-    <body onload="itsDone()">
+    <body onload="itsDone(); loadProjects()">
         <div id="home" class="cut" style="height: 2px; opacity: 1"></div>
         <div id="titleUnderline">
             <a id="title" href="https://floschy.me" onmouseleave="toggle()"></a>
@@ -136,17 +136,15 @@
             </article>
 
             <div id="projects" class="cut"></div>
-            <article class="left nicePink">
-                <h1>I KNOW!</h1>
-                Projects will come soon TM!
-            </article>
+            <div id="projectContent">
+                
+        </div>
             <div id="links" class="cut"></div>
             <article class="right niceBlue">
                 <h1>I KNOW!</h1>
                 Links will come soon TM!
             </article>
         </div>
-        <div id="ring"></div>
         <div id="block" style="z-index: -9"></div>
     </body>
 </html>
