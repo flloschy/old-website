@@ -21,10 +21,12 @@ let home = NaN;
 let aboutMe = NaN;
 let projects = NaN;
 let links = NaN;
+let timeline = NaN;
 let NAVhome = NaN;
 let NAVaboutMe = NaN;
 let NAVprojects = NaN;
 let NAVlinks = NaN;
+let NAVtimeline = NaN;
 
 function updateCursor() {
     moving = true;
@@ -61,10 +63,12 @@ function unselectAll() {
     NAVaboutMe.classList.remove("navSelect");
     NAVprojects.classList.remove("navSelect");
     NAVlinks.classList.remove("navSelect");
+    NAVtimeline.classList.remove("navSelect")
     NAVhome.classList.remove("navSelectHalf");
     NAVaboutMe.classList.remove("navSelectHalf");
     NAVprojects.classList.remove("navSelectHalf");
     NAVlinks.classList.remove("navSelectHalf");
+    NAVtimeline.classList.remove("navSelectHalf")
 }
 
 function itsDone() {
@@ -75,17 +79,19 @@ function itsDone() {
     NAVaboutMe = document.getElementById("navItem2");
     NAVprojects = document.getElementById("navItem3");
     NAVlinks = document.getElementById("navItem4");
+    NAVtimeline = document.getElementById("navItem5");
     home = document.getElementById("home");
     aboutMe = document.getElementById("aboutMe");
     projects = document.getElementById("projects");
     links = document.getElementById("links");
+    timeline = document.getElementById("timeline");
 
     updateCursor();
 
     window.scrollTo({
         top: 0,
-        left: 0
-    })
+        left: 0,
+    });
 
     document.addEventListener("mousemove", function (event) {
         [x, y] = [event.clientX, event.clientY];
@@ -94,28 +100,29 @@ function itsDone() {
 
     document.addEventListener("scroll", function (event) {
         updateCursor();
-
-        if (window.scrollY > links.offsetTop + links.offsetHeight) {
+        if (window.scrollY > timeline.offsetTop + timeline.offsetHeight) {
             unselectAll();
+            NAVlinks.classList.add("navSelectHalf")
+            NAVtimeline.classList.add("navSelect")
+        } else if (window.scrollY > links.offsetTop + links.offsetHeight) {
+            unselectAll();
+            NAVprojects.classList.add("navSelectHalf")
             NAVlinks.classList.add("navSelect");
-            NAVprojects.classList.add("navSelectHalf");
-        } else if (
-            window.scrollY >
-            projects.offsetTop + projects.offsetHeight
-        ) {
+            NAVtimeline.classList.add("navSelectHalf")
+        } else if (window.scrollY > projects.offsetTop + projects.offsetHeight) {
             unselectAll();
-            NAVlinks.classList.add("navSelectHalf");
+            NAVaboutMe.classList.add("navSelectHalf")
             NAVprojects.classList.add("navSelect");
-            NAVaboutMe.classList.add("navSelectHalf");
+            NAVlinks.classList.add("navSelectHalf")
         } else if (window.scrollY > aboutMe.offsetTop + aboutMe.offsetHeight) {
             unselectAll();
-            NAVhome.classList.add("navSelectHalf");
+            NAVprojects.classList.add("navSelectHalf")
             NAVaboutMe.classList.add("navSelect");
-            NAVprojects.classList.add("navSelectHalf");
+            NAVhome.classList.add("navSelectHalf")
         } else {
             unselectAll();
-            NAVaboutMe.classList.add("navSelectHalf");
             NAVhome.classList.add("navSelect");
+            NAVaboutMe.classList.add("navSelectHalf")
         }
     });
 
@@ -128,8 +135,7 @@ function itsDone() {
                 Math.floor((Math.random() * window.outerHeight) / 4) +
                 window.scrollY -
                 window.outerHeight / 8;
-            block.style.filter =
-                "blur(150px)"
+            block.style.filter = "blur(150px)";
             block.animate(
                 {
                     left: x + randomX + "px",
@@ -200,59 +206,58 @@ function scrollIt(hash) {
     location.hash = "#" + hash;
 }
 
-
-
 async function loadProjects() {
-
-    let repos = await (await fetch("https://api.github.com/users/flloschy/repos")).json();
-    let j = 0
-    const projects = document.getElementById('projectContent')
+    let repos = await (
+        await fetch("https://api.github.com/users/flloschy/repos")
+    ).json();
+    let j = 0;
+    const projects = document.getElementById("projectContent");
     for (let i = 0; i < repos.length; i++) {
-        console.log(repos[i]['fork']);
-        if (repos[i]['fork']) continue
-        j++
-        const name = repos[i]['name']
-        const url = "https://github.com/" + repos[i]['full_name']
-        const description = !repos[i]['description'] ? "[ No description ]" : repos[i]['description']
-        const topics = repos[i]['topics']
-        let creation = new Date(repos[i]['created_at'])
-        const languages = await(await fetch(repos[i]['languages_url'])).json();
-        
-        let tags = ""
-        topics.forEach(e => {
-            tags += `<li>${e}</li>`
-        })
+        console.log(repos[i]["fork"]);
+        if (repos[i]["fork"]) continue;
+        j++;
+        const name = repos[i]["name"];
+        const url = "https://github.com/" + repos[i]["full_name"];
+        const description = !repos[i]["description"]
+            ? "[ No description ]"
+            : repos[i]["description"];
+        const topics = repos[i]["topics"];
+        let creation = new Date(repos[i]["created_at"]);
+        const languages = await (await fetch(repos[i]["languages_url"])).json();
+
+        let tags = "";
+        topics.forEach((e) => {
+            tags += `<li>${e}</li>`;
+        });
 
         if (tags) {
-            tags = `<ol class="projectList"><li class="keyword">Topics: </li>${tags}</ol>`
+            tags = `<ol class="projectList"><li class="keyword">Topics: </li>${tags}</ol>`;
         }
 
-        let langs = ""
-        Object.keys(languages).forEach(e => {
-            langs += `<li>${e}</li>`
+        let langs = "";
+        Object.keys(languages).forEach((e) => {
+            langs += `<li>${e}</li>`;
         });
         if (langs) {
-            langs = `<ul class="projectLanguages"><li class="keyword">Languages: </li>${langs}</ul>`
+            langs = `<ul class="projectLanguages"><li class="keyword">Languages: </li>${langs}</ul>`;
         }
 
+        creation = creation.toDateString().split(" ");
+        creation.shift();
+        creation = creation.join("/");
 
-        creation = creation.toDateString().split(" ")
-        creation.shift()
-        creation = creation.join("/")
-
-
-
-        const str = `<article class="${j%2==0 ? 'left nicePink' : 'right niceBlue'} projectArticle">` +
-            (j%2==0 ? `<h1><a href="${url}" target="_blank">${name} <a class="projectDate">${creation}</a></a></h1>` :
-                      `<h1><a class="projectDate">${creation}</a><a href="${url}" target="_blank"> ${name}</a></h1>`
-            )+
+        const str =
+            `<article class="${
+                j % 2 == 0 ? "left nicePink" : "right niceBlue"
+            } projectArticle">` +
+            (j % 2 == 0
+                ? `<h1><a href="${url}" target="_blank">${name} <a class="projectDate">${creation}</a></a></h1>`
+                : `<h1><a class="projectDate">${creation}</a><a href="${url}" target="_blank"> ${name}</a></h1>`) +
             `${description}` +
             `${langs}` +
             `${tags}` +
-        `</article>`
+            `</article>`;
 
         projects.innerHTML += str;
-
     }
-
 }
