@@ -4,7 +4,7 @@
     let updated = "loading..."
 
     onMount(async () => {
-        const fetched = await fetch('https://api.github.com/repos/flloschy/jams')
+        const fetched = await fetch('https://api.github.com/repos/flloschy/website')
         const json = await fetched.json()
         const date = new Date(json.updated_at)
         const year = date.getUTCFullYear()
