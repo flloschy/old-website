@@ -7,7 +7,7 @@
 	let projects: any[] = [];
 
     let onlineProjects: any[] = [
-        {name: "graph", description: "A graphing calculator like GeoGebra", url: "graph", language: "javascript", time: "2023-06-13"},
+        {name: "graph", description: "A graphing calculator like GeoGebra. (you might need to reload the site after using it :/ )", url: "graph", language: "javascript", time: "2023-06-13"},
     ].sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
 
 	onMount(async () => {
@@ -57,6 +57,7 @@
     }
 
 </script>
+<!-- https://devicon.dev/ -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
 <br>
