@@ -1,21 +1,33 @@
 <script lang="js">
-    import Header from './Header.svelte';
-    import Footer from './Footer.svelte';
+	import Header from './Header.svelte';
+	import Footer from './Footer.svelte';
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	onMount(() => {
+		page.subscribe((value) => {
+			if (
+				!(value.route.id?.split('/').includes('projects') && value.route.id?.split('/').length > 2)
+			) {
+				// @ts-ignore
+				document.head.querySelector("link[rel='icon']").href = '/favicon.png';
+			}
+		});
+	});
 </script>
 
 <div class="app">
 	<Header />
 
 	<div class="info">
-		This website is still in development. Features and design may be missing or not working properly just yet.
+		This website is still in development. Features and design may be missing or not working properly
+		just yet.
 	</div>
-	
+
 	<main>
 		<slot />
 	</main>
-	
-    <Footer />
 
+	<Footer />
 </div>
 
 <style>
@@ -41,7 +53,8 @@
 		color: rgb(0, 0, 0);
 		padding: 10px;
 		border-radius: 5px;
-		animation: in 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards, out 0.6s 5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+		animation: in 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards,
+			out 0.6s 5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 	}
 
 	@keyframes in {
@@ -60,5 +73,4 @@
 			transform: translateX(200%);
 		}
 	}
-
 </style>
