@@ -6,7 +6,7 @@
 
     const FAQs:FAQ[] = [
         {question: 'Who are you',
-         answer: 'Floschy'},
+         answer: 'Florian aka. Floschy'},
          {question: 'Where are you from',
          answer: 'Germany'},
          {question: '...',
