@@ -22,14 +22,13 @@
 		time: string;
 	}
 
-	let projects: proje[] = []; 
-    let loadings = 8;
+	let projects: proje[] = [];
+	let loadings = 8;
 
 	let onlineProjects: onlineProje[] = [
 		{
 			name: 'graph',
-			description:
-				'A graphing calculator. (you might need to reload the site after using it)',
+			description: 'A graphing calculator. (you might need to reload the site after using it)',
 			url: 'graph',
 			language: 'javascript',
 			time: '2023-06-13'
@@ -38,7 +37,7 @@
 
 	onMount(async () => {
 		const fetched = await fetch(url);
-        projects = await fetched.json();
+		projects = await fetched.json();
 
 		projects = projects
 			.filter((element) => !element.fork)
@@ -54,7 +53,7 @@
 				};
 			})
 			.sort((a, b) => b.time - a.time);
-            sleep(1000).then(loadLinks);
+		sleep(1000).then(loadLinks);
 	});
 
 	const loadLinks = () => {
@@ -127,31 +126,30 @@
 			<div class="dot dot1" />
 			<div class="dot dot2" />
 		</div>
+	{:else}
+		<!-- number to array of length of the number-->
 
-    {:else}
-        <!-- number to array of length of the number-->
-
-        {#each Array(loadings) as _}
-            <div class="element">
-                <div class="name">
-                    <i class="icon " />
-                    <h class="title" data-link="https://floschy.me">Loading...</h>
-                </div>
-                <div class="date">
-                    <h class="created">Updated: Loading...</h>
-                </div>
-                <div class="content">
-                    <h class="description">Loading</h>
-                </div>
-                <div class="update">
-                    <h class="updated">Created: Loading</h>
-                </div>
-                <div class="line" />
-                <div class="dot dot1" />
-                <div class="dot dot2" />
-            </div>
-        {/each}
-    {/each}
+		{#each Array(loadings) as _}
+			<div class="element">
+				<div class="name">
+					<i class="icon" />
+					<h class="title" data-link="https://floschy.me">Loading...</h>
+				</div>
+				<div class="date">
+					<h class="created">Updated: Loading...</h>
+				</div>
+				<div class="content">
+					<h class="description">Loading</h>
+				</div>
+				<div class="update">
+					<h class="updated">Created: Loading</h>
+				</div>
+				<div class="line" />
+				<div class="dot dot1" />
+				<div class="dot dot2" />
+			</div>
+		{/each}
+	{/each}
 </div>
 <br />
 <div id="static">

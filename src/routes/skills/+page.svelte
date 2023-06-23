@@ -63,8 +63,18 @@
 			comment:
 				'I can position things, but I also need a lot of try and error to get things how I want them to be.'
 		},
-		{ name: 'javascript', percent: 60, comment: 'I use JS mostly with nodejs with which i create virtually exclusively discord bots. For websites I use Svelte + TS' },
-		{ name: 'typescript', percent: 60, comment: 'I use TS combined with Svelte kit for websites, but also for a discord bot called jambo. See /projects' },
+		{
+			name: 'javascript',
+			percent: 60,
+			comment:
+				'I use JS mostly with nodejs with which i create virtually exclusively discord bots. For websites I use Svelte + TS'
+		},
+		{
+			name: 'typescript',
+			percent: 60,
+			comment:
+				'I use TS combined with Svelte kit for websites, but also for a discord bot called jambo. See /projects'
+		},
 
 		{
 			name: 'python',
@@ -78,7 +88,12 @@
 			comment:
 				"I use Nodejs for everything not website, and I got the general things sorted out. There is still a lag of 'pro strats' tho."
 		},
-		{ name: 'java', percent: 30, comment: 'I use java in school. I hate it. But because of the experience ive gathered with other languages I can work with it...' },
+		{
+			name: 'java',
+			percent: 30,
+			comment:
+				'I use java in school. I hate it. But because of the experience ive gathered with other languages I can work with it...'
+		},
 
 		{ name: 'git', percent: 50, comment: 'I can push, I can pull' },
 		{
@@ -96,7 +111,7 @@
 
 	onMount(() => {
 		const comment = document.getElementById('comment');
-        comment.innerHTML = 'hover over a skill to see a comment about it';
+		comment.innerHTML = 'hover over a skill to see a comment about it';
 		const boxes = Array.from(document.getElementsByClassName('box'));
 		boxes.forEach((element) => {
 			const image = element.getElementsByTagName('i')[0];
@@ -111,11 +126,11 @@
 
 			element.addEventListener('mouseenter', (element) => {
 				comment.innerHTML = element.target.getAttribute('data-comment');
-				comment.classList.remove("passive");
+				comment.classList.remove('passive');
 			});
 			element.addEventListener('mouseleave', (element) => {
 				comment.innerHTML = 'hover over a skill to see a comment about it';
-				comment.classList.add("passive");
+				comment.classList.add('passive');
 			});
 		});
 	});
@@ -162,7 +177,7 @@
 		align-items: center;
 	}
 	.passive {
-		color: rgba(255, 255, 255, 0.25)
+		color: rgba(255, 255, 255, 0.25);
 	}
 
 	.container {
@@ -200,9 +215,9 @@
 			'label label label'
 			'bar bar bar'
 			'. . .';
-        margin: 5px;
-        padding: 0;
-        transition: all 1s cubic-bezier(0.81, 0.05, 0.81, 0.05);
+		margin: 5px;
+		padding: 0;
+		transition: all 1s cubic-bezier(0.81, 0.05, 0.81, 0.05);
 	}
 	.bar {
 		filter: brightness(0) invert(1);
@@ -238,23 +253,23 @@
 	}
 
 	.box:hover i {
-		transition: all .1s cubic-bezier(0.65, 0.21, 0.65, 0.21);
+		transition: all 0.1s cubic-bezier(0.65, 0.21, 0.65, 0.21);
 		filter: brightness(1);
 	}
 	.box:hover .label {
-		transition: all .1s cubic-bezier(0.65, 0.21, 0.65, 0.21);
+		transition: all 0.1s cubic-bezier(0.65, 0.21, 0.65, 0.21);
 		filter: brightness(1);
 	}
 	.box:hover .bar {
-		transition: all .1s cubic-bezier(0.65, 0.21, 0.65, 0.21);
+		transition: all 0.1s cubic-bezier(0.65, 0.21, 0.65, 0.21);
 		filter: brightness(1);
 	}
-    .box:hover {
-        transition: all .1s cubic-bezier(1, 0, 1, 0);
-        background-color: rgb(60, 60, 60);
-        margin: 0;
-        padding: 5px;
-    }
+	.box:hover {
+		transition: all 0.1s cubic-bezier(1, 0, 1, 0);
+		background-color: rgb(60, 60, 60);
+		margin: 0;
+		padding: 5px;
+	}
 
 	.unused {
 		filter: none;
