@@ -10,7 +10,7 @@
 	--deletions: rgb(152, 102, 102);
 }
 h,
-span {
+span, div {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 900;
 	color: var(--text);

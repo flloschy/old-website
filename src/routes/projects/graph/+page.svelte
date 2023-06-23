@@ -190,7 +190,9 @@
 </script>
 
 <div class="container">
-	<textarea id="funcs" aria-label="function input"> x ** 2 x Math.sin(x)</textarea>
+	<textarea id="funcs" aria-label="function input">x ** 2
+x
+Math.sin(x)</textarea>
 	<canvas id="plot" />
 </div>
 
