@@ -1,20 +1,45 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
+	interface Letter {
+		i: number;
+		l: string;
+	}
+
+	const original: Letter[] = 'Welcome'.split('').map((letter, index) => {
+		return { i: index, l: letter };
+	});
+	let text: Letter[] = original.reverse();
+
+	onMount(() => {
+		const id = setInterval(() => {
+			let swapped = false;
+			for (let i = 0; i < text.length - 1; i++) {
+				if (text[i].i > text[i + 1].i) {
+					const temp = text[i];
+					text[i] = text[i + 1];
+					text[i + 1] = temp;
+					swapped = true;
+				}
+			}
+
+			if (!swapped) {
+				clearInterval(id);
+			}
+		}, 750 / text.length + 2);
+	});
 </script>
 
-<h id="text">Welcome</h>
+<span class="gradientText blur">{text.map((l) => l.l).join('')}</span>
+<span class="gradientText">{text.map((l) => l.l).join('')}</span>
 
 <style>
-	/* place #text in the center of the page */
-	#text {
+	span {
+		display: block;
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
-		font-size: 6vw;
-		font-weight: 100;
-		color: #808080;
-		color: var(--dark-text);
-		animation: shadowIN 1s forwards cubic-bezier(0.65, 0, 0.35, 1),
-			wave 6s 1.5s infinite alternate-reverse linear;
+		transform: translateX(-50%) translateY(-50%);
+		font-size: 10rem;
 	}
 </style>

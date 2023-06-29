@@ -1,3 +1,9 @@
 # My personal [website](https://floschy.me/) with Svelte kit
 
-###### dont look to hard at my messy code lol
+## [Lighthouse report](https://github.com/flloschy/website/blob/master/lighthouse-report.html):
+
+    99 / 100 - Performance
+    100 / 100 - Accessibility
+    100 / 100 - Best Practices
+    100 / 100 - SEO
+    5 / 7 - PWA

@@ -1,106 +1,98 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import '../global.css';
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
-	let links: HTMLElement[] = [];
 
 	onMount(() => {
-		let links = Array.from(document.getElementsByClassName('url'));
-		links.forEach((element) => {
-			element.addEventListener('click', (event) => {
-				event.preventDefault();
-				goto(element.getAttribute('data-redirect') ?? '/');
+		const buttons = Array.from(document.querySelectorAll('h'));
+
+		buttons.forEach((b) => {
+			b.addEventListener('click', () => {
+				goto(b.getAttribute('data-ref') ?? '/');
 			});
 		});
 
-		page.subscribe((value) => {
-			links.forEach((element) => {
-				if (element.getAttribute('data-redirect') == value.route.id) {
-					element.classList.remove('active');
-				} else {
-					element.classList.add('active');
-				}
+		page.subscribe((p) => {
+			buttons.forEach((b) => {
+				b.classList.remove('active');
 			});
+			buttons.find((b) => b.getAttribute('data-ref') === p.url.pathname)?.classList.add('active');
 		});
 	});
 </script>
 
-<header class="container">
-	<div class="logo element backgroundClip" style="align-items: start; margin-left: 10px">
-		<h class="url active" data-redirect="/">
-			Floschy.me
-			<div class="underlined" />
-		</h>
+<header>
+	<div class="container">
+		<h data-ref="/links"
+			>Links
+			<div class="underline" /></h
+		>
 	</div>
-	<div class="space element" />
-	<div class="projects element backgroundClip">
-		<h class="url" data-redirect="/projects">
-			Projects
-			<div class="underlined" />
-		</h>
+	<div class="container">
+		<h data-ref="/about"
+			>About
+			<div class="underline" /></h
+		>
 	</div>
-	<div class="about element backgroundClip">
-		<h class="url" data-redirect="/about">
-			About
-			<div class="underlined" />
-		</h>
+	<div class="container">
+		<h data-ref="/" class="active"
+			>Home
+			<div class="underline" /></h
+		>
 	</div>
-	<div class="skills element backgroundClip">
-		<h class="url" data-redirect="/skills">
-			Skills
-			<div class="underlined" />
-		</h>
+	<div class="container">
+		<h data-ref="/projects"
+			>Projects
+			<div class="underline" /></h
+		>
 	</div>
-	<div class="links element backgroundClip">
-		<h class="url" data-redirect="/links">
-			Links
-			<div class="underlined" />
-		</h>
+	<div class="container">
+		<h data-ref="/skills"
+			>Skills
+			<div class="underline" /></h
+		>
 	</div>
 </header>
 
 <style>
 	header {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
 		height: fit-content;
-		padding: 0px;
-		background-color: var(--footer-header-color);
+		padding: 10px;
 	}
 	.container {
-		display: grid;
-		grid-auto-columns: 1fr;
-		grid-template-columns: 2fr 6fr 1fr 1fr 1fr;
-		grid-template-rows: 1fr;
-		gap: 0px 0px;
-		grid-template-areas: 'logo space projects about skills links';
-	}
-	.element {
-		height: 100%;
+		width: calc(25% / 5);
+		min-width: fit-content;
 		text-align: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: end;
 	}
+
 	h {
-		margin-right: 10px;
-		font-size: 2vw;
+		margin: 0 auto;
+		display: block;
+		width: fit-content;
+		cursor: pointer;
+		font-size: larger;
+		font-size: xx-large;
 	}
-	.underlined {
-		height: 0.01vw;
+	.underline {
+		margin: auto;
 		width: 0%;
+		height: 1.5px;
 		background-color: var(--text);
-		transition: width 1s cubic-bezier(0.75, 0.15, 0.75, 0.15);
-		border-radius: 1px;
+		transition: width 0.5s 0.2s var(--ease);
 	}
-	.element:hover .underlined {
-		transition: width 0.5s cubic-bezier(0.53, 0.15, 0, 1.1);
+	h:hover .underline {
+		transition: width 0.2s 0s var(--ease);
 		width: 100%;
 	}
+
 	.active {
-		color: var(--dark-text);
+		color: var(--primary);
 	}
-	.active .underlined {
-		background-color: var(--dark-text);
+	.active .underline {
+		background-color: var(--primary);
 	}
 </style>

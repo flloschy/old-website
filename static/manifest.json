@@ -1,0 +1,21 @@
+{
+	"name": "Floschy.me",
+	"short_name": "Floschy",
+	"icons": [
+		{
+			"src": "./favicon192x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "./favicon512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": "/",
+	"display": "standalone",
+	"prefer_related_applications": false,
+	"theme_color": "dark",
+	"background_color": "#212121"
+}
