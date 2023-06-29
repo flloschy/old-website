@@ -16,7 +16,7 @@
 <footer>
 	Floschy &copy; {new Date().getFullYear()} - All rights reserved<br />
 	Latest update:
-	<a class={!lastUpdated ? 'loadingBlock' : ''} href="github.com/flloschy/website"
+	<a class={!lastUpdated ? 'loadingBlock' : ''} href="https://github.com/flloschy/website"
 		>{lastUpdated ?? 'fetching...'}</a
 	>
 </footer>
