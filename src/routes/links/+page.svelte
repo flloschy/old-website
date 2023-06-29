@@ -1,5 +1,21 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Link from '../Link.svelte';
+
+	onMount(() => {
+		const linkCards = Array.from(document.querySelectorAll('.card'));
+
+		linkCards.forEach((element) => {
+			const description = element.getElementsByClassName('comment')[0] as HTMLElement;
+			element.addEventListener('mouseover', () => {
+				element.getBoundingClientRect();
+				description.style.top = `${element.getBoundingClientRect().top + window.scrollY}px`;
+			});
+			element.addEventListener('scroll', () => {
+				description.style.top = `${element.getBoundingClientRect().top + window.scrollY}px`;
+			});
+		});
+	});
 </script>
 
 <!-- https://devicon.dev/ -->

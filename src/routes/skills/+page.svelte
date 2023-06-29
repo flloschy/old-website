@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Skill from '../Skill.svelte';
 
 	interface skill {
@@ -220,6 +221,21 @@
 			percent: 66
 		}
 	].sort((a, b) => b.percent - a.percent);
+
+	onMount(() => {
+		const skillCards = Array.from(document.querySelectorAll('.card'));
+
+		skillCards.forEach((element) => {
+			const description = element.getElementsByClassName('description')[0] as HTMLElement;
+			element.addEventListener('mouseover', () => {
+				element.getBoundingClientRect();
+				description.style.top = `${element.getBoundingClientRect().top + window.scrollY}px`;
+			});
+			element.addEventListener('scroll', () => {
+				description.style.top = `${element.getBoundingClientRect().top + window.scrollY}px`;
+			});
+		});
+	});
 </script>
 
 <!-- https://devicon.dev/ -->

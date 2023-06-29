@@ -9,7 +9,7 @@
 
 <div class="card">
 	<h class="description" style="border-color: {color}; box-shadow: 0 0 5px {color};"
-		>{description}<br />'I would give myself <h class="gradientText">{percent / 10}/10</h>
+		>{description}<br />I would give myself <h class="gradientText">{percent / 10}/10</h>
 	</h>
 	{#if svg}
 		<img class="icon" src={svg} alt={name} style="color: {color};" />
