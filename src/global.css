@@ -80,6 +80,23 @@ button:hover {
 	border-color: var(--secondary);
 }
 
+input {
+	background-color: var(--text);
+	color: var(--invert-text);
+	border-style: none;
+	border-radius: 5px;
+	padding-right: 4px;
+	padding-left: 4px;
+	font-weight: 500;
+}
+input:focus {
+	outline: none;
+}
+input::placeholder {
+	color: var(--invert-text);
+}
+
+
 *::-webkit-scrollbar {
 	width: 7px;
 }

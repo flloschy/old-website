@@ -113,7 +113,7 @@
 <div class="containerA">
 	<Link
 		name="Cookies"
-		comment="This site doesn't use cookies. But third-party resources might. If so, I have no control over them nor see any data from them."
+		comment="This site only uses one cookie when entering password protected pages, no where else. It is used to check if you entered the right password. It will expire after 10 seconds. Nothing besides the used password will be stored. Third-party resources might use cookies, but I have no control over them."
 		color="#d2d15c"
 		svg="/icons/fingerprint.svg"
 	/>

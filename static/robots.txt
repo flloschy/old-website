@@ -1,9 +1,9 @@
 User-agent: Googlebot
-Disallow:
+Disallow: /protected
 User-agent: DuckDuckBot
-Disallow:
+Disallow: /protected
 User-agent: archive.org_bot
-Disallow:
+Disallow: /protected
 
 User-agent: *
 Disallow: /
