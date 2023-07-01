@@ -96,4 +96,50 @@
 		margin-left: 5px;
 		background-color: var(--background);
 	}
+	@media (max-width: 2000px) {
+		.project {
+			width: 70vw;
+		}
+	}
+	@media (max-width: 1500px) {
+		.project {
+			width: 80vw;
+		}
+	}
+	@media (max-width: 1000px) {
+		.project {
+			width: 90vw;
+		}
+	}
+	@media (max-width: 600px) {
+		.project {
+			width: 95vw;
+			grid-template-columns: auto auto;
+			grid-template-rows: auto auto;
+			grid-template-areas:
+				'name languages'
+				'description description';
+		}
+		.line {
+			display: none;
+		}
+		.clone {
+			display: none;
+		}
+	}
+	@media (max-width: 400px) {
+		.project {
+			width: calc(100vw -  4px);
+		}
+	}
+	@media (max-width: 600px) {
+		.languages {
+			display: none;
+		}
+	}
+	@media (max-width: 500px) {
+		.topic {
+			display: none;
+		}
+	}
 </style>

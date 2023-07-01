@@ -94,7 +94,6 @@
 
 <style>
 	.container {
-		/* center */
 		margin: auto;
 
 		width: 70%;
@@ -132,4 +131,44 @@
 		margin-top: 100px;
 		text-align: justify;
 	}
+	@media (max-width: 1500px) {
+		.content {
+			max-width: 70%;
+		}
+	}
+
+	@media (max-width: 1000px) {
+		.content {
+			max-width: 80%;
+		}
+		.container {
+			width: 100%;
+		}
+	}
+	@media (max-width: 600px) {
+		.content {
+			max-width: 90%;
+		}
+		.container {
+			grid-template-columns: auto 1fr;
+			gap: 0px 10px;
+			grid-template-areas: 'date text';
+		}
+		.line {
+			display: none;
+		}
+	}
+	@media (max-width: 400px) {
+		.content {
+			max-width: 95%;
+		}
+	}
+
+
+
+
+
+
+
+
 </style>

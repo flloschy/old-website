@@ -84,4 +84,14 @@
 	.card:hover .icon {
 		filter: none;
 	}
+	@media (max-width: 1500px) {
+		.comment {
+			max-width: 40vw;
+		}
+	}
+	@media (max-width: 600px) {
+		.comment {
+			max-width: 200px;
+		}
+	}
 </style>

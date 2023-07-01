@@ -95,4 +95,19 @@
 	.active .underline {
 		background-color: var(--primary);
 	}
+	@media (max-width: 600px) {
+		h {
+			font-size: 1rem;
+		}
+	}
+	@media (max-width: 300px) {
+		header {
+			flex-direction: column;
+		}
+	} 
+
+
+
+
+
 </style>

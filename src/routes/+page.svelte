@@ -42,4 +42,25 @@
 		transform: translateX(-50%) translateY(-50%);
 		font-size: 10rem;
 	}
+	@media (max-width: 1000px) {
+		span {
+			font-size: 8rem;
+		}
+	}
+	@media (max-width: 600px) {
+		span {
+			font-size: 6rem;
+		}
+	}
+	@media (max-width: 400px) {
+		span {
+			font-size: 4rem;
+		}
+	}
+	@media (max-width: 300px) {
+		span {
+			font-size: 2rem;
+		}
+	}
+
 </style>

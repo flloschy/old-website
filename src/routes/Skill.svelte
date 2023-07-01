@@ -110,9 +110,6 @@
 		border-width: 1px;
 		border-style: solid;
 	}
-	.card:hover .description {
-		display: block;
-	}
 	.gradientText {
 		font-weight: 900;
 	}
@@ -129,7 +126,10 @@
 		background-color: var(--invert-text);
 		rotate: 45deg;
 	}
-
+	
+	.card:hover .description {
+		display: block;
+	}
 	.card:hover .icon {
 		filter: none;
 	}
@@ -139,4 +139,16 @@
 	.card:hover .name {
 		filter: none;
 	}
+
+	@media (max-width: 1500px) {
+		.description {
+			max-width: 40vw;
+		}
+	}
+	@media (max-width: 600px) {
+		.description {
+			max-width: 200px;
+		}
+	}
+
 </style>

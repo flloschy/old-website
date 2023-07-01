@@ -170,7 +170,7 @@
 		<img src="/icons/terminal.svg" alt="terminal" class="clone" />
 		<h class="name">
 			<a class="gradientText" href={data.html_url}>{data.name}</a>
-			<div class="fork language" style="display: {data.fork ? 'inline-flex' : 'none'}">Fork</div>
+			<div class="forkcontainer"><div class="fork language" style="display: {data.fork ? 'inline-flex' : 'none'}">Fork</div></div>
 			{#each data.topics as topic}
 				<h class="topic language">{topic}</h>
 			{/each}
@@ -229,7 +229,63 @@
 			'. line line'
 			'. description description';
 	}
+	@media (max-width: 2000px) {
+		.project {
+			width: 70vw;
+		}
+	}
+	@media (max-width: 1500px) {
+		.project {
+			width: 80vw;
+		}
+	}
+	@media (max-width: 1000px) {
+		.project {
+			width: 90vw;
+		}
+	}
+	@media (max-width: 600px) {
+		.project {
+			width: 95vw;
+			grid-template-columns: auto auto;
+			grid-template-rows: auto auto;
+			grid-template-areas:
+				'name languages'
+				'description description';
+		}
+		.line {
+			display: none;
+		}
+		.clone {
+			display: none;
+		}
+	}
+	@media (max-width: 400px) {
+		.project {
+			width: calc(100vw -  4px);
+		}
+	}
+	@media (max-width: 600px) {
+		.languages {
+			display: none;
+		}
+	}
+	@media (max-width: 500px) {
+		.topic {
+			display: none;
+		}
+	}
+	@media (max-width: 350px) {
+		.forkcontainer {
+			display: none;
+			width: 0px;
+			overflow: hidden;
+			height: 0px;
+			margin: 0;
+			padding: 0;
 
+		}
+	}
 	.clone {
 		margin-right: 2px;
 		color: var(--text);
@@ -249,6 +305,9 @@
 		justify-self: end;
 		align-self: center;
 		grid-area: languages;
+	}
+	.forkcontainer {
+		display: inline-flex;
 	}
 
 	.line {

@@ -65,4 +65,15 @@
 		justify-content: center;
 		align-items: center;
 	}
+	@media (max-width: 1000px) {
+		.headline {
+			font-size: 1.5rem;
+		}
+	}
+	@media (max-width: 450px) {
+		.headline {
+			font-size: 1rem;
+		}
+	}
+
 </style>

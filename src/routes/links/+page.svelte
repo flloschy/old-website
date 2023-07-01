@@ -155,11 +155,40 @@
 	}
 
 	.title {
-		font-size: larger;
+		font-size: 1.25rem;
 		font-weight: 600;
 		margin-top: 30px;
 		margin-bottom: 10px;
 		text-align: center;
 		width: 100%;
 	}
+
+	@media (max-width: 750px) {
+		.containerB {
+			width: calc(200px * 2 + 20px);
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas: '. .';
+		}
+		.title {
+			font-size: 1.1rem;
+		}
+	}
+	@media (max-width: 500px) {
+		.containerB {
+			width: calc(200px);
+			grid-template-columns: 1fr;
+			grid-template-areas: '.';
+			gap: 20px 20px;
+		}
+		.containerA {
+			width: calc(200px);
+			grid-template-columns: 1fr;
+			grid-template-areas: '.';
+			gap: 20px 20px;
+		}
+		.title {
+			font-size: 1rem;
+		}
+	} 
+
 </style>
