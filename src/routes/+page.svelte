@@ -62,5 +62,4 @@
 			font-size: 2rem;
 		}
 	}
-
 </style>

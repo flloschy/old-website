@@ -16,7 +16,7 @@
 		{
 			name: 'Graph',
 			description:
-				'A simple graphing calculator thrown together in a Jam. Due to how Svelte caches pages and how inefficient the code is, it is recommended to refresh the page after going back.',
+				'A simple graphing calculator thrown together in a jam Due to how Svelte caches pages and how inefficient the code is, it is recommended to refresh the page after going back.',
 			url: '/projects/graph',
 			languages: ['TypeScript'],
 			topics: ['math', 'graph', 'calculator', 'jam']
@@ -27,7 +27,6 @@
 		projects = Array.from(
 			await (await fetch('https://api.github.com/users/flloschy/repos')).json()
 		);
-		console.log(projects);
 	});
 </script>
 
@@ -75,5 +74,4 @@
 			font-size: 1rem;
 		}
 	}
-
 </style>

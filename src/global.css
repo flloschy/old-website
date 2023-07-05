@@ -96,7 +96,6 @@ input::placeholder {
 	color: var(--invert-text);
 }
 
-
 *::-webkit-scrollbar {
 	width: 7px;
 }

@@ -31,13 +31,12 @@
 
 	@media (max-width: 600px) {
 		footer {
-			font-size:0.8rem;
+			font-size: 0.8rem;
 		}
 	}
 	@media (max-width: 400px) {
 		footer {
-			font-size:0.5rem;
+			font-size: 0.5rem;
 		}
 	}
-
 </style>

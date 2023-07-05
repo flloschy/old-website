@@ -126,7 +126,7 @@
 		background-color: var(--invert-text);
 		rotate: 45deg;
 	}
-	
+
 	.card:hover .description {
 		display: block;
 	}
@@ -150,5 +150,4 @@
 			max-width: 200px;
 		}
 	}
-
 </style>

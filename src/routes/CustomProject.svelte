@@ -129,7 +129,7 @@
 	}
 	@media (max-width: 400px) {
 		.project {
-			width: calc(100vw -  4px);
+			width: calc(100vw - 4px);
 		}
 	}
 	@media (max-width: 600px) {

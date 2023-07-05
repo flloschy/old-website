@@ -8,5 +8,4 @@
 		justify-content: center;
 		margin-top: 150px;
 	}
-
 </style>

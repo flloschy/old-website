@@ -28,14 +28,14 @@
 <div class="containerA">
 	<Link
 		name="Github"
-		comment="Here is my github profile where you can see all my Public Projects!"
+		comment="Here is my GitHub profile, where you can see all my Public Projects!"
 		url="https://github.com/flloschy/"
 		color="#fff"
 		classX="devicon-github-plain"
 	/>
 	<Link
 		name="Discord"
-		comment="Here is my discord profile where you can contact me if you'd like to!"
+		comment="Here is my Discord profile, where you can contact me if you'd like to!"
 		url="https://discord.com/users/578620425060483072"
 		color="#7289da"
 		svg="/icons/discord.svg"
@@ -46,14 +46,14 @@
 <div class="containerB">
 	<Link
 		name="Github api"
-		comment="This site uses the free github api to get my projects and the last update date. But it is limited to 60 requests per hour, so if you see a loading block, you probably reached the limit."
+		comment="This site uses the free GitHub API to get my projects and the last update date. But it is limited to 60 requests per hour, so if you see a loading block, you probably reached the limit."
 		url="https://docs.github.com/en/rest"
 		color="#fff"
 		classX="devicon-github-plain"
 	/>
 	<Link
 		name="Svelte"
-		comment="This website is made with Svelte!"
+		comment="This website was made with Svelte!"
 		url="https://svelte.dev/"
 		color="#ff3e00"
 		classX="devicon-svelte-plain"
@@ -81,21 +81,21 @@
 	/>
 	<Link
 		name="Layoutit!"
-		comment="Every grid used on this site is made with Layoutit and its great!"
+		comment="Every grid used on this site is made with Layoutit, and it's great!"
 		url="https://grid.layoutit.com/"
 		color="#9dabb5"
 		svg="https://grid.layoutit.com/img/icons/icon-44x44.png"
 	/>
 	<Link
 		name="easings"
-		comment="The few animations on this site where chosen from easings.net"
+		comment="The few animations on this site were chosen from easings.net."
 		url="https://easings.net/"
 		color="#1473E6"
 		svg="https://easings.net/96.8aa68ac4.png"
 	/>
 	<Link
 		name="Vercel"
-		comment="This site is hosted with the free Vercel plan."
+		comment="This site is hosted on the free Vercel plan."
 		url="https://vercel.com"
 		color="#fff"
 		svg="https://assets.vercel.com/image/upload/front/favicon/vercel/57x57.png"
@@ -113,13 +113,13 @@
 <div class="containerA">
 	<Link
 		name="Cookies"
-		comment="This site only uses one cookie when entering password protected pages, no where else. It is used to check if you entered the right password. It will expire after 10 seconds. Nothing besides the used password will be stored. Third-party resources might use cookies, but I have no control over them."
+		comment="This site only uses one cookie when entering password-protected pages and nowhere else. It is used to check if you entered the right password. It will expire after 10 seconds. Nothing besides the used password will be stored. Third-party resources might use cookies, but I have no control over them."
 		color="#d2d15c"
 		svg="/icons/fingerprint.svg"
 	/>
 	<Link
 		name="Data protection"
-		comment="I don't store any data from users on this site. Not what they do. Not what they see. Not when they visit. Not where they are from. Nothing. But third-party resources might. If so, I have no control over them nor see any data from them."
+		comment="I don't store any data from users on this site. Not what they do. Not what they see. Not when they visit. Not where they are from. Nothing. But third-party resources might. If so, I have no control over them and have not seen any data from them."
 		color="#df4944"
 		svg="/icons/database.svg"
 	/>
@@ -189,6 +189,5 @@
 		.title {
 			font-size: 1rem;
 		}
-	} 
-
+	}
 </style>

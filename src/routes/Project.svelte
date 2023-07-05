@@ -170,7 +170,9 @@
 		<img src="/icons/terminal.svg" alt="terminal" class="clone" />
 		<h class="name">
 			<a class="gradientText" href={data.html_url}>{data.name}</a>
-			<div class="forkcontainer"><div class="fork language" style="display: {data.fork ? 'inline-flex' : 'none'}">Fork</div></div>
+			<div class="forkcontainer">
+				<div class="fork language" style="display: {data.fork ? 'inline-flex' : 'none'}">Fork</div>
+			</div>
 			{#each data.topics as topic}
 				<h class="topic language">{topic}</h>
 			{/each}
@@ -262,7 +264,7 @@
 	}
 	@media (max-width: 400px) {
 		.project {
-			width: calc(100vw -  4px);
+			width: calc(100vw - 4px);
 		}
 	}
 	@media (max-width: 600px) {
@@ -283,7 +285,6 @@
 			height: 0px;
 			margin: 0;
 			padding: 0;
-
 		}
 	}
 	.clone {

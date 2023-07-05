@@ -154,7 +154,6 @@
 		drawGrid();
 		functions.forEach((f, i) => plotFunction(f, (300 / functions.length) * i));
 		// and again
-		console.log('yee');
 		requestAnimationFrame(draw);
 	};
 
