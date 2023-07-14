@@ -16,10 +16,18 @@
 		{
 			name: 'Graph',
 			description:
-				'A simple graphing calculator thrown together in a jam Due to how Svelte caches pages and how inefficient the code is, it is recommended to refresh the page after going back.',
+				'A simple graphing calculator thrown together in a jam. Due to how Svelte caches pages and how inefficient the code is, it is recommended to refresh the page after going back.',
 			url: '/projects/graph',
 			languages: ['TypeScript'],
 			topics: ['math', 'graph', 'calculator', 'jam']
+		},
+		{
+			name: 'Chat',
+			description:
+				'A basic chat app made with SvelteKit with accounts, logins and live updates.',
+			url: '/projects/chat',
+			languages: ['Svelte', 'SvelteKit', 'TypeScript'],
+			topics: ['chat', 'app', 'sveltekit', 'svelte']
 		}
 	];
 

@@ -85,14 +85,6 @@
 			percent: 80
 		},
 		{
-			name: 'Google',
-			description:
-				'Well, I use Google for everything. I know it. I also know how to use Google Docs and Google Sheets. Additionally, I completed a Google course about how to better use Google search.',
-			classX: 'devicon-google-plain',
-			color: '#587dbd',
-			percent: 99
-		},
-		{
 			name: 'Java',
 			description:
 				"Just like Arduino, I only know the basics of Java. I have used it for a few School projects. I hate it. I don't want to use it. But I can use it. Kinda, I guess. I never used it for anything else than school, where we didn't do much non-beginner stuff.",
@@ -167,7 +159,7 @@
 		{
 			name: 'Svelte',
 			description:
-				"This Website was made with Svelte. In your opinion, if Im proficient, I think I am, although I didn't touch server-side things. (This Website uses everything I know about Svelte, btw.)",
+				"This Website was made with Svelte. In your opinion, if Im proficient, I think I am. I also know how to use SvelteKit for basic backend shenanigans (see \"/projects/chat\" or \"/protected\").",
 			classX: 'devicon-svelte-plain',
 			color: '#ff3e00',
 			percent: 85
