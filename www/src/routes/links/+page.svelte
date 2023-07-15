@@ -29,14 +29,14 @@
 	<Link
 		name="Github"
 		comment="Here is my GitHub profile, where you can see all my Public Projects!"
-		url="https://github.com/flloschy/"
+		url="https://go.floschy.me/github/"
 		color="#fff"
 		classX="devicon-github-plain"
 	/>
 	<Link
 		name="Discord"
 		comment="Here is my Discord profile, where you can contact me if you'd like to!"
-		url="https://discord.com/users/578620425060483072"
+		url="https://go.floschy.me/discord/"
 		color="#7289da"
 		svg="/icons/discord.svg"
 	/>

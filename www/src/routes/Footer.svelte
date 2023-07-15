@@ -7,7 +7,7 @@
 		const url = 'https://api.github.com/repos/flloschy/website';
 		const fetched = await fetch(url);
 		const data = await fetched.json();
-		lastUpdated = new Date(data.updated_at).toLocaleDateString();
+		lastUpdated = new Date(data.pushed_at).toLocaleDateString();
 		lastUpdated =
 			lastUpdated == 'Invalid Date' ? 'x/x/' + new Date().getFullYear().toString() : lastUpdated;
 	});
