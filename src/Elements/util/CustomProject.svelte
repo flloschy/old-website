@@ -62,6 +62,7 @@
 		justify-self: start;
 		align-self: center;
 		grid-area: name;
+		cursor: pointer;
 	}
 
 	.languages {
