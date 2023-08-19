@@ -9,7 +9,6 @@
 ## install
 
 - download
-- unzip
 - npm install
 - npm run dev
 
@@ -18,4 +17,4 @@
 Have a Cake \
 <img src="https://gearcraft.us/wp-content/uploads/2014/10/CLWtq.jpg" alt="Cake" width="200">
 
-###### \* Not my image obviously, found it at https://gearcraft.us/5-awesome-minecraft-cakes/
+###### \* Not my image, obviously... ( found it there: https://gearcraft.us/5-awesome-minecraft-cakes/ )

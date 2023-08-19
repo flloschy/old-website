@@ -3,11 +3,8 @@ import { env } from '$env/dynamic/private';
 import type { Handle } from '@sveltejs/kit';
 
 const auth: Handle = async ({ event, resolve }) => {
-	const url = new URL(event.request.url);
-
-	if (url.pathname.startsWith('/protected')) {
+	if (event.route.id?.startsWith('/(protected)')) {
 		if (!env.ADMIN_AUTH) {
-			console.log('Not authorized, no ADMIN_AUTH');
 			return new Response('Not authorized, no ADMIN_AUTH', {
 				status: 401
 			});

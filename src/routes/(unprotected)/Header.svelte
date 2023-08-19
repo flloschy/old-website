@@ -1,54 +1,36 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import './protected.css';
+	import './global.css';
 	import { goto } from '$app/navigation';
-
-	onMount(() => {
-		const buttons = Array.from(document.querySelectorAll('h'));
-
-		buttons.forEach((b) => {
-			b.addEventListener('click', () => {
-				goto(b.getAttribute('data-ref') ?? '/');
-			});
-		});
-
-		page.subscribe((p) => {
-			buttons.forEach((b) => {
-				b.classList.remove('active');
-			});
-			buttons.find((b) => b.getAttribute('data-ref') === p.url.pathname)?.classList.add('active');
-		});
-	});
 </script>
 
 <header>
-	<div class="container">
-		<h data-ref="/links"
+	<div class="container" on:click={() => goto("/links")} on:keyup={null} aria-hidden="true">
+		<h data-ref="/links" class="{$page.route.id?.includes('/links') ? 'active' : ''}"
 			>Links
 			<div class="underline" /></h
 		>
 	</div>
-	<div class="container">
-		<h data-ref="/about"
+	<div class="container" on:click={() => goto("/about")} on:keyup={null} aria-hidden="true">
+		<h data-ref="/about" class="{$page.route.id?.includes('/about') ? 'active' : ''}"
 			>About
 			<div class="underline" /></h
 		>
 	</div>
-	<div class="container">
-		<h data-ref="/" class="active"
+	<div class="container"  on:click={() => goto("/")} on:keyup={null} aria-hidden="true">
+		<h data-ref="/" class="{$page.route.id == '/(unprotected)' ? 'active' : ''}"
 			>Home
 			<div class="underline" /></h
 		>
 	</div>
-	<div class="container">
-		<h data-ref="/projects"
-			>Projects
+	<div class="container"  on:click={() => goto("/projects")} on:keyup={null} aria-hidden="true">
+		<h data-ref="/projects" class="{$page.route.id?.includes('/projects') ? 'active' : ''}"
+			>{$page.route.id?.endsWith("(unprotected)") ? 'Projects' : $page.route.id?.split("/").at(-1)}
 			<div class="underline" /></h
 		>
 	</div>
-	<div class="container">
-		<h data-ref="/skills"
+	<div class="container"  on:click={() => goto("/skills")} on:keyup={null} aria-hidden="true">
+		<h data-ref="/skills" class="{$page.route.id?.includes('/skills') ? 'active' : ''}"
 			>Skills
 			<div class="underline" /></h
 		>
@@ -64,12 +46,13 @@
 		padding: 10px;
 	}
 	.container {
-		width: calc(25% / 5);
+		width: calc(100% / 5);
 		min-width: fit-content;
 		text-align: center;
 	}
 
 	h {
+		text-transform: capitalize;
 		margin: 0 auto;
 		display: block;
 		width: fit-content;

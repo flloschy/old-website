@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Link from '../../Elements/util/Link.svelte';
+	import Link from './Link.svelte';
 
 	onMount(() => {
 		const linkCards = Array.from(document.querySelectorAll('.card'));

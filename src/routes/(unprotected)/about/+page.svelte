@@ -14,7 +14,7 @@
 	Teamwork-wise, I would say it works out pretty well too. I can work in a team as long as the work
 	is fairly distributed and everyone is willing to work on their part on time. Which is also my
 	greatest weakness when it comes to teamwork... I hate it when relying on others doesn't work out
-	and I have to do my part as well. It's just depressing. Not that I can't work on my own; in fact,
+	and I have to do their part as well. It's just depressing. Not that I can't work on my own; in fact,
 	I would say I'm a great solo worker, but when doing team work, I expect everyone to do their job.<br
 	/><br />
 

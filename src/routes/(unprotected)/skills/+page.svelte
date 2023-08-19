@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Skill from '../../Elements/util/Skill.svelte';
+	import Skill from './Skill.svelte';
 
 	interface skill {
 		name: string;

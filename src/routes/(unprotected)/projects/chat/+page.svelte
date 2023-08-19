@@ -7,5 +7,5 @@
 	});
 </script>
 
-<a href="https://github.com/flloschy/Jams/tree/main/chatapp">Click this if you are not redirected</a
+<a href="https://github.com/flloschy/Jams/tree/main/chatapp">Click here if you are not redirected</a
 >

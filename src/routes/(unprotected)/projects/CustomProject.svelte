@@ -62,13 +62,13 @@
 		justify-self: start;
 		align-self: center;
 		grid-area: name;
-		cursor: pointer;
 	}
 
 	.languages {
 		justify-self: end;
 		align-self: center;
 		grid-area: languages;
+		cursor: pointer;
 	}
 
 	.line {

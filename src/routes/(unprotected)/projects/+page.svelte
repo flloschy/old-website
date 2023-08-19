@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Project from '../../Elements/util/Project.svelte';
-	import CustomProject from '../../Elements/util/CustomProject.svelte';
+	import Project from './Project.svelte';
+	import CustomProject from './CustomProject.svelte';
 
 	let projects: any[] = [];
 	let CustomProjects: any[] = [
@@ -17,8 +17,15 @@
 			name: 'Chat',
 			description: 'A basic chat app made with SvelteKit with accounts, logins and live updates.',
 			url: '/projects/chat',
-			languages: ['Svelte', 'SvelteKit', 'TypeScript'],
-			topics: ['chat', 'app', 'sveltekit', 'svelte']
+			languages: ['SvelteKit', 'TypeScript'],
+			topics: ['chat', 'app', 'sveltekit', 'chatapp', 'jam']
+		},
+		{
+			name: 'Minesweeper',
+			description: 'The classic game of minesweeper. With variable board size and mine count. Including a history of your games.',
+			url: '/projects/minesweeper',
+			languages: ['TypeScript'],
+			topics: ['minesweeper', 'game', 'jam']
 		}
 	];
 
