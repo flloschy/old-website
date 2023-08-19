@@ -9,5 +9,4 @@ package
 .env.*
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-src/routes/protected/*
-/src/routes/(protected)/protected
+src/routes/(protected)
