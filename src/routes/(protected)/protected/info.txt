@@ -1,0 +1,4 @@
+This is the save space for stuff which should not be publicly accessible
+To set a password and username, see .env_example
+
+note: every route in `(protected)/` is secured by the password
